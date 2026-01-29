@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Radha Krishna Royal Scroll Letter</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{
+      height:100%;width:100%;overflow:hidden;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    /* BACKGROUND IMAGE */
+    .bg-wrapper{
+      position:fixed;inset:0;overflow:hidden;z-index:-3;
+    }
+    .bg-image{
+      position:absolute;inset:-5%;
+      background-image:url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=epR98qxa3hYQ7kNvwF2uUj9&_nc_oc=AdlMhYsys0gEoFm8rFrZ1s890hLk4Q_VvTR9LSjSL-q_kMp9wpsecApWijzrd0fM1Zx33k4AvTBHX9yerV1dhK75&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4QGuWaFVljAaY0NSWheEu-u5oOUNkMmcHHb_X4PvAHiKgQ&oe=69A2762D");
+      background-size:cover;background-position:center;background-repeat:no-repeat;
+    }
+
+    /* SNOWFALL */
+    .snow-layer{
+      position:fixed;inset:0;pointer-events:none;z-index:-2;overflow:hidden;
+    }
+    .snow{
+      position:absolute;top:-10%;width:3px;height:3px;border-radius:50%;
+      background:radial-gradient(circle,#f8ffff 0%,rgba(255,255,255,0) 70%);
+      opacity:0.8;animation:fall linear infinite;
+      box-shadow:0 0 8px rgba(180,230,255,0.9),0 0 16px rgba(120,200,255,0.6);
+    }
+    .snow:nth-child(1){left:10%;animation-duration:10s;animation-delay:0s;}
+    .snow:nth-child(2){left:25%;animation-duration:12s;animation-delay:2s;}
+    .snow:nth-child(3){left:40%;animation-duration:15s;animation-delay:1s;}
+    .snow:nth-child(4){left:55%;animation-duration:11s;animation-delay:3s;}
+    .snow:nth-child(5){left:70%;animation-duration:14s;animation-delay:0.5s;}
+    .snow:nth-child(6){left:82%;animation-duration:13s;animation-delay:4s;}
+    .snow:nth-child(7){left:90%;animation-duration:16s;animation-delay:1.5s;}
+    .snow:nth-child(8){left:5%;animation-duration:18s;animation-delay:2.5s;}
+    @keyframes fall{
+      0%{transform:translate3d(0,0,0) scale(1);opacity:0;}
+      10%{opacity:1;}
+      50%{transform:translate3d(-10px,50vh,0) scale(1.05);}
+      100%{transform:translate3d(10px,105vh,0) scale(0.9);opacity:0;}
+    }
+
+    /* LETTER LAYER – fixed center box */
+    .letter-layer{
+      position:fixed;inset:0;
+      display:flex;align-items:center;justify-content:center;
+      z-index:1;
+    }
+    .letter-backdrop{
+      position:fixed;inset:0;
+      background:radial-gradient(circle at center,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.55) 55%,
+        rgba(0,0,0,0.9) 100%);
+      backdrop-filter:blur(2px);
+      opacity:0;
+      animation:backdropIn 1s ease-out forwards;
+      animation-delay:0.3s;
+      z-index:0;
+      animation-fill-mode:forwards;
+    }
+    @keyframes backdropIn{to{opacity:1;}}
+
+    .letter-box{
+      position:relative;
+      min-width:260px;
+      max-width:460px;
+      border-radius:24px;
+      background:transparent;
+      perspective:1200px;
+      transform:scale(0.7);
+      opacity:0;
+      animation:letterBoxIn 1s cubic-bezier(0.19,1,0.22,1) forwards;
+      animation-delay:0.8s;
+      z-index:1;
+      animation-fill-mode:forwards;
+    }
+    @keyframes letterBoxIn{
+      0%{transform:scale(0.7);opacity:0;}
+      60%{transform:scale(1.03);opacity:1;}
+      100%{transform:scale(0.96);opacity:1;}
+    }
+
+    .letter-inner{
+      position:relative;
+      background:linear-gradient(180deg,#1a1426 0%,#090613 40%,#12091e 100%);
+      border-radius:24px;
+      border:1px solid rgba(255,230,190,0.85);
+      box-shadow:
+        0 0 40px rgba(0,0,0,0.9),
+        0 0 70px rgba(111,177,255,0.9),
+        0 0 55px rgba(255,215,170,0.8);
+      padding:18px 18px 16px;
+      color:#fdf7e9;
+      transform-origin:top center;
+      transform:scaleY(0.05);
+      opacity:0;
+      animation:scrollOpen 1.3s cubic-bezier(0.19,1,0.22,1) forwards;
+      animation-delay:1.2s;
+      animation-fill-mode:forwards;
+    }
+    @keyframes scrollOpen{
+      0%{transform:scaleY(0.05);opacity:0;}
+      60%{transform:scaleY(1.05);opacity:1;}
+      80%{transform:scaleY(0.95);}
+      100%{transform:scaleY(1);opacity:1;}
+    }
+
+    .scroll-bar{
+      position:absolute;left:0;right:0;height:8px;
+      background:linear-gradient(90deg,#f5e0b8,#fdf3cf,#f5e0b8);
+      box-shadow:0 0 12px rgba(255,230,190,0.9);
+    }
+    .scroll-bar.top{top:8px;border-radius:999px;}
+    .scroll-bar.bottom{bottom:8px;border-radius:999px;}
+
+    .letter-title{
+      font-size:16px;font-weight:500;letter-spacing:1px;
+      margin:12px 0 6px;text-align:center;color:#ffe9c0;
+    }
+
+    .letter-body-wrap{
+      max-height:150px;
+      overflow:hidden;
+      padding-top:4px;
+      scroll-behavior:smooth; /* smooth scroll */
+    }
+    .letter-body{
+      font-size:12px;line-height:1.7;
+      white-space:pre-wrap;
+      position:relative;
+    }
+
+    .cursor{
+      display:inline-block;
+      width:2px;
+      background:rgba(255,255,255,0.9);
+      margin-left:2px;
+      animation:caretBlink 0.8s steps(1,end) infinite;
+      vertical-align:baseline;
+    }
+    @keyframes caretBlink{
+      0%,50%{opacity:1;}
+      51%,100%{opacity:0;}
+    }
+
+    .shine{
+      position:absolute;top:0;left:-40%;
+      width:40%;height:100%;
+      background:linear-gradient(120deg,
+        transparent 0%,
+        rgba(255,255,255,0.6) 40%,
+        rgba(255,244,214,0.95) 50%,
+        rgba(255,255,255,0.6) 60%,
+        transparent 100%);
+      opacity:0;
+      transform:skewX(-20deg);
+      animation:shineSweep 1.2s ease-out forwards;
+      animation-delay:1.1s;
+      pointer-events:none;
+    }
+    @keyframes shineSweep{
+      0%{left:-40%;opacity:0;}
+      20%{opacity:0.9;}
+      100%{left:110%;opacity:0;}
+    }
+
+    @keyframes fadeOutAll{
+      to{opacity:0;visibility:hidden;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Background -->
+  <div class="bg-wrapper"><div class="bg-image"></div></div>
+
+  <!-- Snow -->
+  <div class="snow-layer">
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+  </div>
+
+  <!-- Royal Scroll Letter -->
+  <div class="letter-layer" id="letterLayer">
+    <div class="letter-backdrop"></div>
+
+    <div class="letter-box">
+      <div class="letter-inner">
+        <div class="scroll-bar top"></div>
+        <div class="scroll-bar bottom"></div>
+        <div class="shine"></div>
+
+        <div class="letter-title">
+          To my dearest angel..
+        </div>
+
+        <div class="letter-body-wrap">
+          <div class="letter-body" id="messageText"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Final merged emotional letter you pasted [cite:43][cite:46]
+    const fullMessage = `The dearest angel of my life,
+Kabhi kabhi zindagi me kuch log aise mil jaate hain jo bina awaaz kiye, bina zyada kuch maange, dil ka ek bohot hi khaas hissa ban jaate hain.
+Tum unhi logon me se ek ho. 💫
+Shayad maine hamesha sahi tareeke se express nahi kiya, lekin sach ye hai ki tumhara role meri life me hamesha se bohot hi special raha hai.
+Aaj bhi jab pichhle kuch mahino ko shant se dimaag me rewind karta hoon, to bohot si yaadein seedha tumse hi shuru hoti hain – chhoti chhoti baatein, simple se din, random si chats, aur woh saari conversations jo us waqt normal lagti thi, lekin aaj unhe soch kar dil me ek alag si warmth feel hoti hai.
+Time ke saath priorities badal gayi, responsibilities badh gayi, hum dono apni‑apni directions me aage badhne lage… phir bhi kuch connections aise hote hain jo samay ke saath fade nahi hote, balki aur zyada quietly deepen ho jaate hain. 🌙
+Shayad ab hum waise baat nahi karte, ya utna connect nahi ho pata jitna pehle hota tha, lekin iska matlab ye bilkul nahi ki un dino ki value kam ho gayi.
+Un dino ki, un baaton ki, aur tumhari respect aaj bhi utni hi strong hai – shayad pehle se bhi zyada.
+
+Ye lines likhte waqt shayad main perfect words nahi chun paaunga, lekin phir bhi ek baar dil se sab kuch seedha rakh dene ka mann hua.
+Tum meri zindagi ke us hissa ka naam ho jahan sab kuch thoda zyada real, thoda zyada sincere aur thoda zyada meaningful lagta tha. 💛
+Pichhe mudh kar dekhta hoon to realise hota hai ki us phase me jitni bhi growth, jitni bhi learning, jitna bhi change aaya, us sab me tumhara ek quiet sa, lekin bohot important sa hissa tha.
+Shayad tumne khud kabhi uss tareeke se feel na kiya ho, lekin chahe woh simple se din ho jahan hum casually baat karte the, ya woh moments jahan tumne bina realise kiye bhi support diya – aaj woh sab cheezein mere liye bohot zyada value rakhti hain.
+Zindagi apne pace se aage badh rahi hai – tum apne goals, responsibilities aur naye chapters ke saath busy ho, aur main apni direction me.
+Ye sab naturally hona hi tha, aur shayad zaroori bhi tha.
+Lekin iss naturally badalte hue time ke beech kuch log aise hote hain jinke liye respect kabhi kam nahi hoti; chahe conversations kam ho jaayein, chahe distances badh jaayein, phir bhi unka place dil me utna hi safe aur utna hi strong rehta hai.
+Tum unhi logon me se ek ho. 🌻
+
+Ye sab kuch kisi conclusion, kisi decision, ya kisi demand ke liye nahi likh raha.
+Bas itna sa hai ki jo bhi dil me gratitude, warmth, attachment aur respect tha, usko seedhe, simple shabdon me rakh diya jaaye – bina kisi expectation ke, sirf honesty ke saath.
+Thank you – un sab dino ke liye jahan tumne, shayad bina jaane, meri life ko thoda sa halka sa, thoda sa behtar bana diya.
+Thank you un moments ke liye jahan tumhari presence ne cheezein sirf easy ya light nahi, balki genuinely special bana di.
+Aaj bhi dil se yehi dua nikalti hai ki tumhe aage aane wale har phase me clarity mile, ache decisions milen, aise log milen jo tumhe waise hi samajh saken jaise tum deserve karti ho, aur tum hamesha apne aap par proud feel karo…
+Aur agar kabhi future me kisi din, kisi chhoti si baat se tumhe meri yaad aa bhi jaaye, to bas itna sa samajhna ki kahin na kahin se ek shant si good wish – ek chhota sa, dil se nikla positive thought – tumhare naam likha gaya tha. ✨
+
+Sincerely,
+Saurav`;
+
+    const container = document.getElementById('messageText');
+    const letterLayer = document.getElementById('letterLayer');
+
+    const chars = fullMessage.split('');
+    let index = 0;
+
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    container.appendChild(cursor);
+
+    const startDelay = 1600; // ms
+    const perChar = 120;     // slower, smoother typing
+
+    setTimeout(() => {
+      const interval = setInterval(() => {
+        if (index >= chars.length) {
+          clearInterval(interval);
+          cursor.remove();
+
+          setTimeout(() => {
+            letterLayer.style.animation = 'fadeOutAll 1s ease-out forwards';
+          }, 5000);
+          return;
+        }
+
+        const ch = chars[index];
+
+        if (ch === '\n') {
+          container.insertBefore(document.createElement('br'), cursor);
+          container.insertBefore(document.createElement('br'), cursor);
+        } else {
+          container.insertBefore(document.createTextNode(ch), cursor);
+        }
+
+        // smooth scroll as text grows
+        container.parentElement.scrollTop = container.parentElement.scrollHeight;
+
+        index++;
+      }, perChar);
+    }, startDelay);
+  </script>
+</body>
+</html>
