@@ -55,7 +55,7 @@
       100%{transform:translate3d(10px,105vh,0) scale(0.9);opacity:0;}
     }
 
-    /* YOUTUBE OVERLAY – ORIGINAL PLAYER */
+    /* YOUTUBE OVERLAY – PLAYER */
     .yt-overlay{
       position:fixed;inset:0;
       display:flex;align-items:center;justify-content:center;
@@ -305,13 +305,13 @@
     <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
   </div>
 
-  <!-- STEP 1: YT PLAYER WITH CUSTOM PLAYLIST -->
+  <!-- STEP 1: YT PLAYER WITH UPDATED PLAYLIST -->
   <div class="yt-overlay" id="ytOverlay">
     <div class="yt-container">
       <iframe
         id="ytPlayer"
         class="yt-embed"
-        src="https://www.youtube.com/embed/mYBqt29G9cA?autoplay=0&controls=1&rel=0&showinfo=0&enablejsapi=1&playlist=PKqVWbzMpb8,8sqDCkVgMbc,EfdUsiDcU3Q,BGSmRmIv5ws"
+        src="https://www.youtube.com/embed/mYBqt29G9cA?autoplay=0&controls=1&rel=0&showinfo=0&enablejsapi=1&playlist=PKqVWbzMpb8,8sqDCkVgMbc,EfdUsiDcU3Q,BGSmRmIv5ws,psqZYRRb22U,AKUk1v3rBvc,cupyMQmemIg"
         title="Songs playlist"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; autoplay"
         allowfullscreen>
@@ -422,7 +422,7 @@ Baaki aur kuch matter nahi karta.`;
             setTimeout(() => {
               ganeshaSection.classList.add('visible');
               startGaneshaTyping();
-            }, 6000); // approx 1s after fade-out start
+            }, 6000);
 
             return;
           }
@@ -494,3 +494,4 @@ Baaki aur kuch matter nahi karta.`;
   <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
