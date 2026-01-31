@@ -225,6 +225,56 @@
     @keyframes fadeOutAll{
       to{opacity:0;visibility:hidden;}
     }
+
+    /* GANESHA SECTION */
+    .ganesha-section{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      z-index:1;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 1s ease;
+    }
+    .ganesha-section.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .ganesha-card{
+      max-width:420px;
+      width:90vw;
+      padding:14px 16px 16px;
+      border-radius:22px;
+      background:rgba(8,6,18,0.78);
+      border:1px solid rgba(255,230,190,0.85);
+      box-shadow:
+        0 0 30px rgba(0,0,0,0.85),
+        0 0 25px rgba(255,223,186,0.5);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      text-align:center;
+      color:#ffeeda;
+    }
+    .ganesha-gif-wrap{
+      display:flex;
+      justify-content:center;
+      margin-bottom:10px;
+    }
+    .ganesha-gif-wrap img{
+      max-width:220px;
+      width:80%;
+      border-radius:18px;
+      box-shadow:0 0 20px rgba(255,223,186,0.65);
+    }
+    .ganesha-text{
+      font-size:12px;
+      line-height:1.7;
+      white-space:pre-wrap;
+      text-shadow:0 1px 3px rgba(0,0,0,0.7);
+    }
   </style>
 </head>
 <body>
@@ -243,7 +293,7 @@
       <iframe
         id="ytPlayer"
         class="yt-embed"
-        src="https://www.youtube.com/embed/mYBqt29G9cA?autoplay=0&controls=1&rel=0&showinfo=0&enablejsapi=1&playlist=PKqVWbzMpb8,8sqDCkVgMbc,sQfxTcOaNwk,EfdUsiDcU3Q,BGSmRmIv5ws"
+        src="https://www.youtube.com/embed/mYBqt29G9cA?autoplay=0&controls=1&rel=0&showinfo=0&enablejsapi=1&playlist=PKqVWbzMpb8,8sqDCkVgMbc,EfdUsiDcU3Q,BGSmRmIv5ws"
         title="Songs playlist"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; autoplay"
         allowfullscreen>
@@ -268,6 +318,20 @@
         <div class="letter-body-wrap">
           <div class="letter-body" id="messageText"></div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: GANESHA GIF + TEXT (after letter) -->
+  <div class="ganesha-section" id="ganeshaSection">
+    <div class="ganesha-card">
+      <div class="ganesha-gif-wrap">
+        <img src="https://c.tenor.com/76TPk8O5M6EAAAAC/tenor.gif" alt="Lord Ganesha" />
+      </div>
+      <div class="ganesha-text">
+Tumhara aur Bappa ka jo rishta hai na, woh itna pure hai ki mujhe kabhi kabhi lagta hai Ganpati Bappa tumhaare through hi meri life me aaye the.
+Aaj bhi main bas unse ek chhoti si dua maangta hoon: jaise tum unpe poora vishwas karti ho, waise hi woh hamesha tumhara raasta clear karein, tumhara dil halka rakhein, aur tumhe har us jagah se door rakhein jahan se tumhe hurt mil sakti hai.
+Ganpati Bappa se meri side se sirf itna sa request hai – tumhara har din unki blessings se safe, peaceful aur thoda sa extra special rahe… bilkul tumhari tarah. 🕉️💛
       </div>
     </div>
   </div>
@@ -304,6 +368,7 @@ Saurav`;
     const ytOverlay = document.getElementById('ytOverlay');
     const letterLayer = document.getElementById('letterLayer');
     const container = document.getElementById('messageText');
+    const ganeshaSection = document.getElementById('ganeshaSection');
 
     const chars = fullMessage.split('');
     let index = 0;
@@ -327,9 +392,16 @@ Saurav`;
             clearInterval(interval);
             cursor.remove();
 
+            // Letter fade out
             setTimeout(() => {
               letterLayer.style.animation = 'fadeOutAll 1s ease-out forwards';
             }, 5000);
+
+            // 1–2 sec baad Ganesha section show
+            setTimeout(() => {
+              ganeshaSection.classList.add('visible');
+            }, 6000); // 5s wait + ~1s extra
+
             return;
           }
 
