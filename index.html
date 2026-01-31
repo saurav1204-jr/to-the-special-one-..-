@@ -21,9 +21,18 @@
       background-size:cover;background-position:center;background-repeat:no-repeat;
     }
 
+    /* LIGHT TINT TO HELP CAMOUFLAGE OVERLAYS */
+    .bg-tint{
+      position:fixed;inset:0;z-index:-2;
+      background:radial-gradient(circle at center,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.55) 55%,
+        rgba(0,0,0,0.9) 100%);
+    }
+
     /* SNOWFALL */
     .snow-layer{
-      position:fixed;inset:0;pointer-events:none;z-index:-2;overflow:hidden;
+      position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;
     }
     .snow{
       position:absolute;top:-10%;width:3px;height:3px;border-radius:50%;
@@ -87,18 +96,8 @@
 
     .letter-backdrop{
       position:fixed;inset:0;
-      background:radial-gradient(circle at center,
-        rgba(0,0,0,0.15) 0%,
-        rgba(0,0,0,0.55) 55%,
-        rgba(0,0,0,0.9) 100%);
-      backdrop-filter:blur(2px);
-      opacity:0;
-      animation:backdropIn 1s ease-out forwards;
-      animation-delay:0.3s;
-      z-index:0;
-      animation-fill-mode:forwards;
+      background:transparent;
     }
-    @keyframes backdropIn{to{opacity:1;}}
 
     .letter-box{
       position:relative;
@@ -226,14 +225,16 @@
       to{opacity:0;visibility:hidden;}
     }
 
-    /* GANESHA SECTION */
+    /* GANESHA SECTION – CAMOUFLAGED, TYPE EFFECT */
     .ganesha-section{
       position:fixed;
       inset:0;
       display:flex;
       align-items:center;
       justify-content:center;
-      flex-direction:column;
+      text-align:center;
+      padding:16px;
+      color:#ffeeda;
       z-index:1;
       opacity:0;
       pointer-events:none;
@@ -243,43 +244,60 @@
       opacity:1;
       pointer-events:auto;
     }
-    .ganesha-card{
+
+    .ganesha-inner{
       max-width:420px;
-      width:90vw;
-      padding:14px 16px 16px;
+      width:100%;
+      background:rgba(6,4,14,0.45);
       border-radius:22px;
-      background:rgba(8,6,18,0.78);
-      border:1px solid rgba(255,230,190,0.85);
+      border:1px solid rgba(255,230,190,0.6);
       box-shadow:
-        0 0 30px rgba(0,0,0,0.85),
-        0 0 25px rgba(255,223,186,0.5);
+        0 0 30px rgba(0,0,0,0.8),
+        0 0 24px rgba(255,223,186,0.45);
       backdrop-filter:blur(10px);
       -webkit-backdrop-filter:blur(10px);
-      text-align:center;
-      color:#ffeeda;
+      padding:14px 16px 16px;
     }
+
     .ganesha-gif-wrap{
       display:flex;
       justify-content:center;
-      margin-bottom:10px;
+      margin-bottom:12px;
+      mix-blend-mode:screen;
     }
     .ganesha-gif-wrap img{
       max-width:220px;
       width:80%;
       border-radius:18px;
-      box-shadow:0 0 20px rgba(255,223,186,0.65);
+      box-shadow:0 0 18px rgba(255,223,186,0.7);
     }
+
     .ganesha-text{
       font-size:12px;
       line-height:1.7;
       white-space:pre-wrap;
       text-shadow:0 1px 3px rgba(0,0,0,0.7);
+      min-height:90px;
+    }
+
+    .g-cursor{
+      display:inline-block;
+      width:2px;
+      background:rgba(255,255,255,0.9);
+      margin-left:2px;
+      animation:gCaretBlink 0.8s steps(1,end) infinite;
+      vertical-align:baseline;
+    }
+    @keyframes gCaretBlink{
+      0%,50%{opacity:1;}
+      51%,100%{opacity:0;}
     }
   </style>
 </head>
 <body>
   <!-- Background -->
   <div class="bg-wrapper"><div class="bg-image"></div></div>
+  <div class="bg-tint"></div>
 
   <!-- Snow -->
   <div class="snow-layer">
@@ -322,17 +340,13 @@
     </div>
   </div>
 
-  <!-- STEP 3: GANESHA GIF + TEXT (after letter) -->
+  <!-- STEP 3: GANESHA GIF + TYPEWRITER TEXT -->
   <div class="ganesha-section" id="ganeshaSection">
-    <div class="ganesha-card">
+    <div class="ganesha-inner">
       <div class="ganesha-gif-wrap">
-        <img src="https://c.tenor.com/76TPk8O5M6EAAAAC/tenor.gif" alt="Lord Ganesha" />
+        <img src="https://c.tenor.com/76TPk8O5M6EAAAAC/tenor.gif" alt="Ganpati Bappa">
       </div>
-      <div class="ganesha-text">
-Tumhara aur Bappa ka jo rishta hai na, woh itna pure hai ki mujhe kabhi kabhi lagta hai Ganpati Bappa tumhaare through hi meri life me aaye the.
-Aaj bhi main bas unse ek chhoti si dua maangta hoon: jaise tum unpe poora vishwas karti ho, waise hi woh hamesha tumhara raasta clear karein, tumhara dil halka rakhein, aur tumhe har us jagah se door rakhein jahan se tumhe hurt mil sakti hai.
-Ganpati Bappa se meri side se sirf itna sa request hai – tumhara har din unki blessings se safe, peaceful aur thoda sa extra special rahe… bilkul tumhari tarah. 🕉️💛
-      </div>
+      <div class="ganesha-text" id="gText"></div>
     </div>
   </div>
 
@@ -365,10 +379,17 @@ Aur agar kabhi future me kisi din, kisi chhoti si baat se tumhe meri yaad aa bhi
 Sincerely,
 Saurav`;
 
+    const ganeshaFull = `Bahot maanti ho na tum inko…
+Tumhari wajah se hi main inse pray karta tha ki sab theek rahe, tum khush raho, apni zindagi aazaadi se jiyo.
+Kabhi kabhi lagta hai shayad isi wajah se unhone mujhe thoda door kar diya… 😣
+Phir bhi ek cheez se genuinely khush hoon – ki tum khush ho.
+Baaki aur kuch matter nahi karta.`;
+
     const ytOverlay = document.getElementById('ytOverlay');
     const letterLayer = document.getElementById('letterLayer');
     const container = document.getElementById('messageText');
     const ganeshaSection = document.getElementById('ganeshaSection');
+    const gContainer = document.getElementById('gText');
 
     const chars = fullMessage.split('');
     let index = 0;
@@ -397,10 +418,11 @@ Saurav`;
               letterLayer.style.animation = 'fadeOutAll 1s ease-out forwards';
             }, 5000);
 
-            // 1–2 sec baad Ganesha section show
+            // 1–2 sec baad Ganesha section show + typing
             setTimeout(() => {
               ganeshaSection.classList.add('visible');
-            }, 6000); // 5s wait + ~1s extra
+              startGaneshaTyping();
+            }, 6000); // approx 1s after fade-out start
 
             return;
           }
@@ -418,6 +440,35 @@ Saurav`;
           index++;
         }, perChar);
       }, 1600);
+    }
+
+    // GANESHA TYPEWRITER
+    const gChars = ganeshaFull.split('');
+    let gIndex = 0;
+    const gCursor = document.createElement('span');
+    gCursor.className = 'g-cursor';
+    gContainer.appendChild(gCursor);
+    const gPerChar = 90;
+
+    function startGaneshaTyping(){
+      const interval = setInterval(() => {
+        if (gIndex >= gChars.length){
+          clearInterval(interval);
+          gCursor.remove();
+          return;
+        }
+
+        const ch = gChars[gIndex];
+
+        if (ch === '\n'){
+          gContainer.insertBefore(document.createElement('br'), gCursor);
+          gContainer.insertBefore(document.createElement('br'), gCursor);
+        } else {
+          gContainer.insertBefore(document.createTextNode(ch), gCursor);
+        }
+
+        gIndex++;
+      }, gPerChar);
     }
 
     let player;
