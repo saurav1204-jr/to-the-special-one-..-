@@ -8,45 +8,55 @@
     html,body{
       height:100%;width:100%;overflow:hidden;
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:transparent;
+      background:
+        radial-gradient(circle at center,
+          rgba(0,0,0,0.05) 0%,
+          rgba(0,0,0,0.4) 55%,
+          rgba(0,0,0,0.7) 100%),
+        url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=epR98qxa3hYQ7kNvwF2uUj9&_nc_oc=AdlMhYsys0gEoFm8rFrZ1s890hLk4Q_VvTR9LSjSL-q_kMp9wpsecApWijzrd0fM1Zx33k4AvTBHX9yerV1dhK75&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4QGuWaFVljAaY0NSWheEu-u5oOUNkMmcHHb_X4PvAHiKgQ&oe=69A2762D");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
     }
 
-    /* RADHA-KRISHNA BACKGROUND – STARTING PART */
-    .bg-wrapper{
-      position:fixed;inset:0;overflow:hidden;z-index:-3;
-    }
-    .bg-image{
-      position:absolute;inset:-5%;
-      background-image:url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=epR98qxa3hYQ7kNvwF2uUj9&_nc_oc=AdlMhYsys0gEoFm8rFrZ1s890hLk4Q_VvTR9LSjSL-q_kMp9wpsecApWijzrd0fM1Zx33k4AvTBHX9yerV1dhK75&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4QGuWaFVljAaY0NSWheEu-u5oOUNkMmcHHb_X4PvAHiKgQ&oe=69A2762D");
-      background-size:cover;background-position:center;background-repeat:no-repeat;
-    }
-
-    .bg-tint{
-      position:fixed;inset:0;z-index:-2;
-      background:radial-gradient(circle at center,
-        rgba(0,0,0,0.15) 0%,
-        rgba(0,0,0,0.55) 55%,
-        rgba(0,0,0,0.9) 100%);
-    }
-
-    /* SNOWFALL */
+    /* SNOWFALL – dense */
     .snow-layer{
       position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;
     }
     .snow{
       position:absolute;top:-10%;width:3px;height:3px;border-radius:50%;
       background:radial-gradient(circle,#f8ffff 0%,rgba(255,255,255,0) 70%);
-      opacity:0.8;animation:fall linear infinite;
+      opacity:0.9;animation:fall linear infinite;
       box-shadow:0 0 8px rgba(180,230,255,0.9),0 0 16px rgba(120,200,255,0.6);
     }
-    .snow:nth-child(1){left:10%;animation-duration:10s;animation-delay:0s;}
-    .snow:nth-child(2){left:25%;animation-duration:12s;animation-delay:2s;}
-    .snow:nth-child(3){left:40%;animation-duration:15s;animation-delay:1s;}
-    .snow:nth-child(4){left:55%;animation-duration:11s;animation-delay:3s;}
-    .snow:nth-child(5){left:70%;animation-duration:14s;animation-delay:0.5s;}
-    .snow:nth-child(6){left:82%;animation-duration:13s;animation-delay:4s;}
-    .snow:nth-child(7){left:90%;animation-duration:16s;animation-delay:1.5s;}
-    .snow:nth-child(8){left:5%;animation-duration:18s;animation-delay:2.5s;}
+
+    .snow:nth-child(1){left:3%;animation-duration:10s;animation-delay:0s;}
+    .snow:nth-child(2){left:8%;animation-duration:12s;animation-delay:1s;}
+    .snow:nth-child(3){left:13%;animation-duration:14s;animation-delay:2s;}
+    .snow:nth-child(4){left:18%;animation-duration:11s;animation-delay:3s;}
+    .snow:nth-child(5){left:23%;animation-duration:16s;animation-delay:1.5s;}
+    .snow:nth-child(6){left:28%;animation-duration:13s;animation-delay:0.5s;}
+    .snow:nth-child(7){left:33%;animation-duration:15s;animation-delay:2.5s;}
+    .snow:nth-child(8){left:38%;animation-duration:17s;animation-delay:3.5s;}
+
+    .snow:nth-child(9){left:43%;animation-duration:12s;animation-delay:0.8s;}
+    .snow:nth-child(10){left:48%;animation-duration:14s;animation-delay:1.8s;}
+    .snow:nth-child(11){left:53%;animation-duration:16s;animation-delay:2.8s;}
+    .snow:nth-child(12){left:58%;animation-duration:18s;animation-delay:3.8s;}
+    .snow:nth-child(13){left:63%;animation-duration:13s;animation-delay:0.3s;}
+    .snow:nth-child(14){left:68%;animation-duration:15s;animation-delay:1.3s;}
+    .snow:nth-child(15){left:73%;animation-duration:17s;animation-delay:2.3s;}
+    .snow:nth-child(16){left:78%;animation-duration:19s;animation-delay:3.3s;}
+
+    .snow:nth-child(17){left:83%;animation-duration:11s;animation-delay:0.6s;}
+    .snow:nth-child(18){left:88%;animation-duration:13s;animation-delay:1.6s;}
+    .snow:nth-child(19){left:93%;animation-duration:15s;animation-delay:2.6s;}
+    .snow:nth-child(20){left:98%;animation-duration:17s;animation-delay:3.6s;}
+    .snow:nth-child(21){left:50%;animation-duration:20s;animation-delay:0.2s;}
+    .snow:nth-child(22){left:5%;animation-duration:19s;animation-delay:1.2s;}
+    .snow:nth-child(23){left:95%;animation-duration:18s;animation-delay:2.2s;}
+    .snow:nth-child(24){left:25%;animation-duration:21s;animation-delay:3.2s;}
+
     @keyframes fall{
       0%{transform:translate3d(0,0,0) scale(1);opacity:0;}
       10%{opacity:1;}
@@ -383,62 +393,18 @@
       opacity:1;
       transform:translateY(0);
     }
-
-    /* FINAL SCENE: FULLSCREEN PHOTOS BACKGROUND + TRANSPARENT SHEET */
-    .intro-layer{
-      position:fixed;
-      inset:0;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity 0.7s ease;
-      z-index:5;
-    }
-    .intro-layer.visible{
-      opacity:1;
-      pointer-events:auto;
-    }
-
-    .bg-slideshow{
-      position:fixed;
-      inset:0;
-      background-color:#000;
-      background-position:center;
-      background-repeat:no-repeat;
-      background-size:cover;
-      transition:background-image 0.6s ease-in-out;
-      z-index:0;
-    }
-
-    .center-sheet{
-      position:fixed;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      width:60%;
-      max-width:420px;
-      min-height:120px;
-      border-radius:20px;
-      background:rgba(5,3,15,0.08);
-      border:1px solid rgba(255,240,210,0.4);
-      box-shadow:0 0 8px rgba(0,0,0,0.5);
-      z-index:1;
-    }
-
-    .rk-layer-hidden{
-      animation:fadeOutAll 1s ease-out forwards;
-    }
   </style>
 </head>
 <body>
-  <!-- RADHA-KRISHNA + SNOW LAYER -->
-  <div id="rkLayer">
-    <div class="bg-wrapper"><div class="bg-image"></div></div>
-    <div class="bg-tint"></div>
-
-    <div class="snow-layer">
-      <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-      <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-    </div>
+  <!-- Snow only (background is on body) -->
+  <div class="snow-layer">
+    <!-- 24 flakes -->
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
   </div>
 
   <!-- STEP 1: YT PLAYER -->
@@ -497,12 +463,6 @@
       </div>
       <div class="result-message" id="resultMsg"></div>
     </div>
-  </div>
-
-  <!-- STEP 5: FULLSCREEN PHOTOS BG -->
-  <div class="intro-layer" id="introLayer">
-    <div class="bg-slideshow" id="bgSlide"></div>
-    <div class="center-sheet"></div>
   </div>
 
   <script>
@@ -609,7 +569,6 @@ Baaki aur kuch matter nahi karta.`;
           clearInterval(interval);
           gCursor.remove();
 
-          // Bappa ke baad YES/NO popup
           setTimeout(() => {
             document.getElementById('continueOverlay').classList.add('visible');
           }, 1500);
@@ -647,69 +606,31 @@ Baaki aur kuch matter nahi karta.`;
       }
     }
 
-    /* YES/NO + PHOTOS BG */
+    /* YES/NO */
     const btnYes = document.getElementById('btnYes');
     const btnNo  = document.getElementById('btnNo');
     const result = document.getElementById('resultMsg');
-    const introLayer = document.getElementById('introLayer');
-    const bgSlide = document.getElementById('bgSlide');
     const continueOverlay = document.getElementById('continueOverlay');
-    const rkLayer = document.getElementById('rkLayer');
 
-    const images = [
-      "https://scontent.fpat2-7.fna.fbcdn.net/v/t1.15752-9/623299758_788311696963412_6130928784699707561_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=xsAVBrIQ4jkQ7kNvwHWVWCh&_nc_oc=AdkAAhe2DBLuq22SlJEfaeXNfw21CQqTHQqSdfvc1mTlnDAaetmqdO2okd4TrQOjYiNaTb_tgb1ZXXYvyydEFOAi&_nc_zt=23&_nc_ht=scontent.fpat2-7.fna&oh=03_Q7cD4gFxNiGleRsOt7MEQOo20Fdhw9Vxjqmt8zOUb_3TCyPE5A&oe=69A689E2",
-      "https://scontent.fpat2-7.fna.fbcdn.net/v/t1.15752-9/622447955_25675667285427218_8100423536696184575_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=JeGU0Vv9-BwQ7kNvwGwY0di&_nc_oc=AdkmRfaNYsia8eYKHZ2lo--tUweO4l2u4F8-HpZ0eSrfRVga2d8InMN00lQXMwQTPiP_GGB2XnERVZnHxVAegth1&_nc_zt=23&_nc_ht=scontent.fpat2-7.fna&oh=03_Q7cD4gERjMAU4IKj04few5aThK6SXUIhpCA585qepklI14kxlg&oe=69A69A57",
-      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/622950826_947005357985208_4304513266680621551_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=FQuUZusgiXgQ7kNvwH1pAqC&_nc_oc=Adkka7QEY0FUGyImE9uXdlbk4H39YcxrtjaX6fhieqAQHeu9V60oPtubqFx8BV3wPTdxIGbl4aVVh4ILCzRVPupc&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gFbZP2bUAxFORHuocmaDp-CVSMMN612PCKKcCwl4VT54g&oe=69A6889E",
-      "https://scontent.fpat2-5.fna.fbcdn.net/v/t1.15752-9/625076670_880255524803511_561611122675682754_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=odl6C9SqeI4Q7kNvwFDmec2&_nc_oc=AdlrQcoab0naW9ESL2PDtX8QclRDs5LJ6xFNYDoLT9CJWtuXMVn28f3SZ7DNWZE2djRYx8_Nc31FzY32qpRE7rKL&_nc_zt=23&_nc_ht=scontent.fpat2-5.fna&oh=03_Q7cD4gHo_9m3tomnW5JKPQxiilpFhTS73hEJ3vfdRm12YuQ0Rw&oe=69A678BE",
-      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/621994308_903418058799911_1435237305257483363_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_ohc=WcfwKfJM91AQ7kNvwE2SyS6&_nc_oc=AdklbqN2aEiWwOLnb3IEEA0soKSBfulyWKWYYC837iWPTnXeyhROYEGsW147ZXyleaXJ736xQPkHOSQHKq1p1QfA&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gGq44Z3JuZOvRSqz36yQWNJc9sr2jb3eTB86zyKmAg7bg&oe=69A6AB22",
-      "https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/623245776_895586249508902_7371997397591949857_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_ohc=oYdJvlfkUjUQ7kNvwH8_LGF&_nc_oc=AdnaDQyEogXv20RiEI5HClwT1njWMmwWQcJ2td8RV97shWYZuA_UifYBtxjBtLWL3XzdPLUtX9XQCqYHvpwDM5kC&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gEdIkeHqIA75N1OokUvdeXGMwZswA6ZXenPaJ8aAjH8IQ&oe=69A6AD17",
-      "https://scontent.fpat2-7.fna.fbcdn.net/v/t1.15752-9/623071959_1411887210581229_5106234510912368694_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=9f807c&_nc_ohc=LuzmdEFZ08sQ7kNvwHB16xl&_nc_oc=Adk0RfbEUsdsHP50RYWWDWAsnF0Sq1RfAHQ5VZw7XNZS8XeDfn6YWViLA2RClT0rt5dZMSjEsMYEGs-Ed7GLcSQC&_nc_zt=23&_nc_ht=scontent.fpat2-7.fna&oh=03_Q7cD4gE1Q_mxBaFQZjYT3UClTn4ARi9_iHY-xlAu80SCGzdeYw&oe=69A67BE1",
-      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/623983412_3512145712261674_5500202061250518389_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=ht6CSA26QKwQ7kNvwGQCl4S&_nc_oc=AdkhynRadeNZqPonoRlwfnynHuJ-2ziMBLKMzduhy0BRwj3EFxx06tLOEhkvgfWsjQjgM9Zhf59jRcx8p-ZAKemm&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gFIyPfFpAywh-MMvfajfyh_kEzVoAawa0ctXzPjqRka_g&oe=69A6872E",
-      "https://scontent.fpat2-1.fna.fbcdn.net/v/t1.15752-9/620988499_1284047206903132_5798597311009508610_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_ohc=ktY4Ge7WyLsQ7kNvwED3eDP&_nc_oc=Adm-mAqWsRhOFDEzwHXCh1jZox04fbZa8TKx4sSKZacLEl3rRnhTs6eDFLBzXu7bEOgvxHVrNRMoWZsgrQaugMU9&_nc_zt=23&_nc_ht=scontent.fpat2-1.fna&oh=03_Q7cD4gHTBGDSYa2-jLNvjtDkeJcA8w6G3RyYSP-LHIsOeKUcBA&oe=69A69578",
-      "https://scontent.fpat2-1.fna.fbcdn.net/v/t1.15752-9/554318464_810588545066495_7711168136695813350_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_ohc=E7GuxTTgdQIQ7kNvwHosLLy&_nc_oc=Adng28VCGoIf2aXkMCbhvdRfJBwq3UFzg9rFvU_1GnKF_al7iWBd4g79X9x9hKSzmec2_ltcMPI6AdxvGKbRfMth&_nc_zt=23&_nc_ht=scontent.fpat2-1.fna&oh=03_Q7cD4gHUNItKprq5pdzLe9k-J7tdt11rnTNfnY6jFtlnpv-fRg&oe=69A69137",
-      "https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/617539299_779491687775749_714475733150328202_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_ohc=jh7BKLK_qskQ7kNvwEEvzjl&_nc_oc=AdmY7T7K-_Ml5JbxzF2KLmRF192_65ACopOn4I0WeRqaAgLsBCoJDOCtziTYxN2vjaHYH3WbMNkeAuaDanZywQ2w&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gFURyCesRGhg94IgdH0Nb9ac1TjvSE94XKT4qM0m-58aw&oe=69A6A59D",
-      "https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/507848219_666974609653808_2576493738857289688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=difQIskjG3gQ7kNvwGh_o50&_nc_oc=Adl9AqDmj5I3Q0JV6gBT52t7rFHRT5wJ87B9oDl1EyzyWAW4UaS9sr0DuC40yne7n5dTU7Q9sghp1qvGUBU-_eGS&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gF-wparjyBDQ8B9GybwalHYUJHgd0F6coLa-mKudLWMqQ&oe=69A6AD1E",
-      "https://scontent.fpat2-5.fna.fbcdn.net/v/t1.15752-9/538612628_1446945586583922_5095965929542328960_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=AnCiJ96GgBQQ7kNvwGyOF4C&_nc_oc=Admv9rrB5kPbu8N8EjIQuXINeCrEZAqtn_9XgEKXPQL4bx1TZl1xkgGoH7UlDGbSmVMJhgFn5scbmui4s0GXi3q1&_nc_zt=23&_nc_ht=scontent.fpat2-5.fna&oh=03_Q7cD4gGLI855ilMREd70uFnC6vMSBnKEXhPl7yNie3SHzcsf-w&oe=69A6ADAD",
-      "https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/507007323_1744512706141251_8043408747550666570_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_ohc=J5lMh3Zbt04Q7kNvwESmUgG&_nc_oc=Adnl3dVergEKeAEXSxQBBJ6q_lDyVeeCorPam2EgTF3I77Xc60LrKEnxpNWYQ5kXKCdG38TkCXex1RYCG420JSmI&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gGbPRvQXqfmoXMyzWDa_Je6oH69vc05sLhbA3fg7d5MbQ&oe=69A68BE5"
-    ];
-
-    let currentImg = 0;
-
-    function setBg(i){
-      bgSlide.style.backgroundImage = `url('${images[i]}')`;
-    }
-
-    function startSlideshow(){
-      setBg(currentImg);
-      setInterval(() => {
-        currentImg = (currentImg + 1) % images.length;
-        setBg(currentImg);
-      }, 15000);
-    }
-
-    function startFinalScene(delay){
+    function closePopup(delay){
       setTimeout(() => {
         continueOverlay.classList.remove('visible');
-        rkLayer.classList.add('rk-layer-hidden');
-        introLayer.classList.add('visible');
-        startSlideshow();
       }, delay);
     }
 
     btnYes.addEventListener('click', () => {
       result.textContent = "Sirf tumhare liye kuch chhoti‑si cheezein banayi hain,\nthodi si mehnat se… dekhogi?";
       result.classList.add('visible');
-      startFinalScene(2000);
+      closePopup(5000); // 5 sec
     });
 
     btnNo.addEventListener('click', () => {
       result.textContent = "Kitne bigdail ho yrr tum…\nitni mehnat se banayi hui cheez ko koi aise mana karta hai kya? Ab dekho nahi toh katti. 😤";
       result.classList.add('visible');
-      startFinalScene(2500);
+      closePopup(5000); // 5 sec
     });
   </script>
 
   <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
-
