@@ -2,261 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>To my dearest angel..</title>
+  <title>Bappa + Continue + Fullscreen Pics</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     html,body{
-      height:100%;width:100%;overflow:hidden;
+      height:100%;width:100%;
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:transparent;
-    }
-
-    /* RADHA-KRISHNA BACKGROUND – ALWAYS ON */
-    .bg-wrapper{
-      position:fixed;inset:0;overflow:hidden;z-index:-3;
-    }
-    .bg-image{
-      position:absolute;inset:-5%;
-      background-image:url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=epR98qxa3hYQ7kNvwF2uUj9&_nc_oc=AdlMhYsys0gEoFm8rFrZ1s890hLk4Q_VvTR9LSjSL-q_kMp9wpsecApWijzrd0fM1Zx33k4AvTBHX9yerV1dhK75&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4QGuWaFVljAaY0NSWheEu-u5oOUNkMmcHHb_X4PvAHiKgQ&oe=69A2762D");
-      background-size:cover;background-position:center;background-repeat:no-repeat;
-    }
-
-    /* LIGHT TINT TO HELP CAMOUFLAGE OVERLAYS */
-    .bg-tint{
-      position:fixed;inset:0;z-index:-2;
-      background:radial-gradient(circle at center,
-        rgba(0,0,0,0.15) 0%,
-        rgba(0,0,0,0.55) 55%,
-        rgba(0,0,0,0.9) 100%);
-    }
-
-    /* SNOWFALL */
-    .snow-layer{
-      position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;
-    }
-    .snow{
-      position:absolute;top:-10%;width:3px;height:3px;border-radius:50%;
-      background:radial-gradient(circle,#f8ffff 0%,rgba(255,255,255,0) 70%);
-      opacity:0.8;animation:fall linear infinite;
-      box-shadow:0 0 8px rgba(180,230,255,0.9),0 0 16px rgba(120,200,255,0.6);
-    }
-    .snow:nth-child(1){left:10%;animation-duration:10s;animation-delay:0s;}
-    .snow:nth-child(2){left:25%;animation-duration:12s;animation-delay:2s;}
-    .snow:nth-child(3){left:40%;animation-duration:15s;animation-delay:1s;}
-    .snow:nth-child(4){left:55%;animation-duration:11s;animation-delay:3s;}
-    .snow:nth-child(5){left:70%;animation-duration:14s;animation-delay:0.5s;}
-    .snow:nth-child(6){left:82%;animation-duration:13s;animation-delay:4s;}
-    .snow:nth-child(7){left:90%;animation-duration:16s;animation-delay:1.5s;}
-    .snow:nth-child(8){left:5%;animation-duration:18s;animation-delay:2.5s;}
-    @keyframes fall{
-      0%{transform:translate3d(0,0,0) scale(1);opacity:0;}
-      10%{opacity:1;}
-      50%{transform:translate3d(-10px,50vh,0) scale(1.05);}
-      100%{transform:translate3d(10px,105vh,0) scale(0.9);opacity:0;}
-    }
-
-    /* YOUTUBE OVERLAY – PLAYER */
-    .yt-overlay{
-      position:fixed;inset:0;
-      display:flex;align-items:center;justify-content:center;
-      z-index:3;
-      transition:opacity 0.7s ease;
-      background:none;
-    }
-    .yt-overlay.hidden{
-      opacity:0;
-      pointer-events:none;
-    }
-    .yt-container{
-      width:90vw;
-      max-width:420px;
-      aspect-ratio:16/9;
-      box-shadow:0 0 30px rgba(0,0,0,0.85);
-      border-radius:18px;
+      background:#05040a;
+      color:#ffeeda;
       overflow:hidden;
-      background:#000;
-    }
-    .yt-embed{
-      width:100%;height:100%;border:0;
     }
 
-    /* LETTER LAYER */
-    .letter-layer{
+    .bg{
       position:fixed;inset:0;
-      display:flex;align-items:center;justify-content:center;
-      z-index:2;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity 0.8s ease;
-    }
-    .letter-layer.visible{
-      opacity:1;
-      pointer-events:auto;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 55%),
+        radial-gradient(circle at bottom, rgba(255,180,120,0.08), transparent 60%),
+        #05040a;
+      z-index:-2;
     }
 
-    .letter-backdrop{
-      position:fixed;inset:0;
-      background:transparent;
-    }
-
-    .letter-box{
-      position:relative;
-      min-width:260px;
-      max-width:460px;
-      border-radius:24px;
-      background:transparent;
-      perspective:1200px;
-      transform:scale(0.7);
-      opacity:0;
-      animation:letterBoxIn 1s cubic-bezier(0.19,1,0.22,1) forwards;
-      animation-delay:0.8s;
-      z-index:1;
-      animation-fill-mode:forwards;
-      transition:transform 0.6s ease, box-shadow 0.6s ease;
-    }
-    @keyframes letterBoxIn{
-      0%{transform:scale(0.7);opacity:0;}
-      60%{transform:scale(1.03);opacity:1;}
-      100%{transform:scale(0.96);opacity:1;}
-    }
-    @media (hover:hover){
-      .letter-box:hover{
-        transform:scale(0.73);
-        box-shadow:0 0 45px rgba(255,245,220,0.45);
-      }
-    }
-
-    .letter-inner{
-      position:relative;
-      background:rgba(9, 6, 19, 0.72);
-      border-radius:24px;
-      border:1px solid rgba(255,230,190,0.85);
-      box-shadow:
-        0 0 40px rgba(0,0,0,0.85),
-        0 0 30px rgba(111,177,255,0.45),
-        0 0 40px rgba(255,215,170,0.55);
-      padding:18px 18px 16px;
-      color:#fdf7e9;
-      transform-origin:top center;
-      transform:scaleY(0.05);
-      opacity:0;
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      animation:scrollOpen 1.3s cubic-bezier(0.19,1,0.22,1) forwards;
-      animation-delay:1.2s;
-      animation-fill-mode:forwards;
-    }
-    @keyframes scrollOpen{
-      0%{transform:scaleY(0.05);opacity:0;}
-      60%{transform:scaleY(1.05);opacity:1;}
-      80%{transform:scaleY(0.95);}
-      100%{transform:scaleY(1);opacity:1;}
-    }
-
-    .scroll-bar{
-      position:absolute;left:0;right:0;height:8px;
-      background:linear-gradient(90deg,#f5e0b8,#fdf3cf,#f5e0b8);
-      box-shadow:0 0 12px rgba(255,230,190,0.9);
-    }
-    .scroll-bar.top{top:8px;border-radius:999px;}
-    .scroll-bar.bottom{bottom:8px;border-radius:999px;}
-
-    .letter-title{
-      font-size:17px;
-      font-weight:500;
-      letter-spacing:1.4px;
-      margin:12px 0 6px;
-      text-align:center;
-      color:#ffe9c0;
-      text-shadow:
-        0 0 6px rgba(255,233,192,0.8),
-        0 2px 4px rgba(0,0,0,0.6);
-    }
-
-    .letter-body-wrap{
-      max-height:150px;
-      overflow:hidden;
-      padding-top:4px;
-      scroll-behavior:smooth;
-    }
-    .letter-body{
-      font-size:12px;
-      line-height:1.7;
-      white-space:pre-wrap;
-      position:relative;
-      text-shadow:0 1px 3px rgba(0,0,0,0.7);
-    }
-
-    .cursor{
-      display:inline-block;
-      width:2px;
-      background:rgba(255,255,255,0.9);
-      margin-left:2px;
-      animation:caretBlink 0.8s steps(1,end) infinite;
-      vertical-align:baseline;
-    }
-    @keyframes caretBlink{
-      0%,50%{opacity:1;}
-      51%,100%{opacity:0;}
-    }
-
-    .shine{
-      position:absolute;top:0;left:-40%;
-      width:40%;height:100%;
-      background:linear-gradient(120deg,
-        transparent 0%,
-        rgba(255,255,255,0.6) 40%,
-        rgba(255,244,214,0.95) 50%,
-        rgba(255,255,255,0.6) 60%,
-        transparent 100%);
-      opacity:0;
-      transform:skewX(-20deg);
-      animation:shineSweep 1.2s ease-out forwards;
-      animation-delay:1.1s;
-      pointer-events:none;
-    }
-    @keyframes shineSweep{
-      0%{left:-40%;opacity:0;}
-      20%{opacity:0.9;}
-      100%{left:110%;opacity:0;}
-    }
-
-    @keyframes fadeOutAll{
-      to{opacity:0;visibility:hidden;}
-    }
-
-    /* GANESHA SECTION – CAMOUFLAGED, TYPE EFFECT */
-    .ganesha-section{
-      position:fixed;
-      inset:0;
+    .center-wrap{
+      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      text-align:center;
       padding:16px;
-      color:#ffeeda;
+      position:relative;
       z-index:1;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity 1s ease;
-    }
-    .ganesha-section.visible{
-      opacity:1;
-      pointer-events:auto;
     }
 
-    .ganesha-inner{
+    .card{
       max-width:420px;
       width:100%;
-      background:rgba(6,4,14,0.45);
+      background:rgba(6,4,14,0.7);
       border-radius:22px;
       border:1px solid rgba(255,230,190,0.6);
       box-shadow:
         0 0 30px rgba(0,0,0,0.8),
-        0 0 24px rgba(255,223,186,0.45);
+        0 0 24px rgba(255,223,186,0.35);
       backdrop-filter:blur(10px);
       -webkit-backdrop-filter:blur(10px);
       padding:14px 16px 16px;
+      text-align:center;
     }
 
     .ganesha-gif-wrap{
@@ -273,11 +61,11 @@
     }
 
     .ganesha-text{
-      font-size:12px;
+      font-size:13px;
       line-height:1.7;
       white-space:pre-wrap;
       text-shadow:0 1px 3px rgba(0,0,0,0.7);
-      min-height:90px;
+      min-height:100px;
     }
 
     .g-cursor{
@@ -292,57 +80,150 @@
       0%,50%{opacity:1;}
       51%,100%{opacity:0;}
     }
+
+    /* CONTINUE OVERLAY (popup) */
+    .continue-overlay{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      background:rgba(0,0,0,0.75);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.6s ease;
+      z-index:3;
+    }
+    .continue-overlay.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .continue-box{
+      max-width:360px;
+      width:100%;
+      background:rgba(10,7,20,0.9);
+      border-radius:18px;
+      border:1px solid rgba(255,230,190,0.8);
+      box-shadow:0 0 26px rgba(0,0,0,0.85);
+      padding:16px 18px 18px;
+      text-align:center;
+      color:#ffeeda;
+    }
+
+    .continue-title{
+      font-size:16px;
+      margin-bottom:8px;
+      letter-spacing:0.5px;
+    }
+    .continue-sub{
+      font-size:12px;
+      opacity:0.85;
+      margin-bottom:14px;
+    }
+
+    .btn-row{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+    }
+    .btn{
+      flex:1;
+      padding:8px 0;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:500;
+      letter-spacing:0.4px;
+      transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    .btn-yes{
+      background:linear-gradient(135deg,#ffcf98,#ffdcae);
+      color:#3a2308;
+      box-shadow:0 0 12px rgba(255,210,150,0.7);
+    }
+    .btn-no{
+      background:rgba(30,18,50,0.95);
+      color:#ffeeda;
+      border:1px solid rgba(255,230,190,0.5);
+      box-shadow:0 0 12px rgba(120,90,190,0.5);
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 0 16px rgba(255,230,190,0.9);
+    }
+    .btn:active{
+      transform:translateY(0);
+      box-shadow:none;
+    }
+
+    .result-message{
+      margin-top:14px;
+      font-size:12px;
+      line-height:1.6;
+      opacity:0;
+      transform:translateY(4px);
+      transition:opacity 0.4s ease, transform 0.4s ease;
+      white-space:pre-wrap;
+    }
+    .result-message.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* INTRO LAYER: fullscreen photos background + sheet */
+    .intro-layer{
+      position:fixed;
+      inset:0;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.7s ease;
+      z-index:4;
+    }
+    .intro-layer.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .intro-bg{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      transition:background-image 0.6s ease-in-out;
+      z-index:0;
+    }
+
+    .circle-letter{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:60%;
+      max-width:420px;
+      min-height:120px;
+      border-radius:20px;
+      /* aur zyada transparent */
+      background:rgba(5,3,15,0.18);
+      border:1px solid rgba(255,240,210,0.6);
+      box-shadow:
+        0 0 14px rgba(0,0,0,0.6),
+        0 0 12px rgba(255,220,180,0.4);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      z-index:1;
+    }
   </style>
 </head>
 <body>
-  <!-- Background -->
-  <div class="bg-wrapper"><div class="bg-image"></div></div>
-  <div class="bg-tint"></div>
+  <div class="bg"></div>
 
-  <!-- Snow -->
-  <div class="snow-layer">
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-  </div>
-
-  <!-- STEP 1: YT PLAYER WITH UPDATED PLAYLIST -->
-  <div class="yt-overlay" id="ytOverlay">
-    <div class="yt-container">
-      <iframe
-        id="ytPlayer"
-        class="yt-embed"
-        src="https://www.youtube.com/embed/mYBqt29G9cA?autoplay=0&controls=1&rel=0&showinfo=0&enablejsapi=1&playlist=PKqVWbzMpb8,8sqDCkVgMbc,EfdUsiDcU3Q,BGSmRmIv5ws,psqZYRRb22U,AKUk1v3rBvc,cupyMQmemIg"
-        title="Songs playlist"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; autoplay"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-
-  <!-- STEP 2: SONG PLAY HOTE HI LETTER -->
-  <div class="letter-layer" id="letterLayer">
-    <div class="letter-backdrop"></div>
-
-    <div class="letter-box">
-      <div class="letter-inner">
-        <div class="scroll-bar top"></div>
-        <div class="scroll-bar bottom"></div>
-        <div class="shine"></div>
-
-        <div class="letter-title">
-          To my dearest angel..
-        </div>
-
-        <div class="letter-body-wrap">
-          <div class="letter-body" id="messageText"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STEP 3: GANESHA GIF + TYPEWRITER TEXT -->
-  <div class="ganesha-section" id="ganeshaSection">
-    <div class="ganesha-inner">
+  <!-- STEP 1: BAPPA CARD (pura old scene) -->
+  <div class="center-wrap">
+    <div class="card">
       <div class="ganesha-gif-wrap">
         <img src="https://c.tenor.com/76TPk8O5M6EAAAAC/tenor.gif" alt="Ganpati Bappa">
       </div>
@@ -350,99 +231,34 @@
     </div>
   </div>
 
+  <!-- STEP 2: CONTINUE POPUP (YES/NO) -->
+  <div class="continue-overlay" id="continueOverlay">
+    <div class="continue-box">
+      <div class="continue-title">Shall we continue.?</div>
+      <div class="continue-sub">thodi si aur mehnat dikhau tumhe? 👀</div>
+      <div class="btn-row">
+        <button class="btn btn-yes" id="btnYes">Yes</button>
+        <button class="btn btn-no" id="btnNo">No</button>
+      </div>
+      <div class="result-message" id="resultMsg"></div>
+    </div>
+  </div>
+
+  <!-- STEP 3: FULLSCREEN PHOTOS BACKGROUND + TRANSPARENT SHEET -->
+  <div class="intro-layer" id="introLayer">
+    <div class="intro-bg" id="introBg"></div>
+    <div class="circle-letter"></div>
+  </div>
+
   <script>
-    const fullMessage = `The dearest angel of my life,
-Kabhi kabhi zindagi me kuch log aise mil jaate hain jo bina awaaz kiye, bina zyada kuch maange, dil ka ek bohot hi khaas hissa ban jaate hain.
-Tum unhi logon me se ek ho. 💫
-Shayad maine hamesha sahi tareeke se express nahi kiya, lekin sach ye hai ki tumhara role meri life me hamesha se bohot hi special raha hai.
-Aaj bhi jab pichhle kuch mahino ko shant se dimaag me rewind karta hoon, to bohot si yaadein seedha tumse hi shuru hoti hain – chhoti chhoti baatein, simple se din, random si chats, aur woh saari conversations jo us waqt normal lagti thi, lekin aaj unhe soch kar dil me ek alag si warmth feel hoti hai.
-Time ke saath priorities badal gayi, responsibilities badh gayi, hum dono apni‑apni directions me aage badhne lage… phir bhi kuch connections aise hote hain jo samay ke saath fade nahi hote, balki aur zyada quietly deepen ho jaate hain. 🌙
-Shayad ab hum waise baat nahi karte, ya utna connect nahi ho pata jitna pehle hota tha, lekin iska matlab ye bilkul nahi ki un dino ki value kam ho gayi.
-Un dino ki, un baaton ki, aur tumhari respect aaj bhi utni hi strong hai – shayad pehle se bhi zyada.
-
-Ye lines likhte waqt shayad main perfect words nahi chun paaunga, lekin phir bhi ek baar dil se sab kuch seedha rakh dene ka mann hua.
-Tum meri zindagi ke us hissa ka naam ho jahan sab kuch thoda zyada real, thoda zyada sincere aur thoda zyada meaningful lagta tha. 💛
-Pichhe mudh kar dekhta hoon to realise hota hai ki us phase me jitni bhi growth, jitni bhi learning, jitna bhi change aaya, us sab me tumhara ek quiet sa, lekin bohot important sa hissa tha.
-Shayad tumne khud kabhi uss tareeke se feel na kiya ho, lekin chahe woh simple se din ho jahan hum casually baat karte the, ya woh moments jahan tumne bina realise kiye bhi support diya – aaj woh sab cheezein mere liye bohot zyada value rakhti hain.
-Zindagi apne pace se aage badh rahi hai – tum apne goals, responsibilities aur naye chapters ke saath busy ho, aur main apni direction me.
-Ye sab naturally hona hi tha, aur shayad zaroori bhi tha.
-Lekin iss naturally badalte hue time ke beech kuch log aise hote hain jinke liye respect kabhi kam nahi hoti; chahe conversations kam ho jaayein, chahe distances badh jaayein, phir bhi unka place dil me utna hi safe aur utna hi strong rehta hai.
-Tum unhi logon me se ek ho. 🌻
-
-Ye sab kuch kisi conclusion, kisi decision, ya kisi demand ke liye nahi likh raha.
-Bas itna sa hai ki jo bhi dil me gratitude, warmth, attachment aur respect tha, usko seedhe, simple shabdon me rakh diya jaaye – bina kisi expectation ke, sirf honesty ke saath.
-Thank you – un sab dino ke liye jahan tumne, shayad bina jaane, meri life ko thoda sa halka sa, thoda sa behtar bana diya.
-Thank you un moments ke liye jahan tumhari presence ne cheezein sirf easy ya light nahi, balki genuinely special bana di.
-Aaj bhi dil se yehi dua nikalti hai ki tumhe aage aane wale har phase me clarity mile, ache decisions milen, aise log milen jo tumhe waise hi samajh saken jaise tum deserve karti ho, aur tum hamesha apne aap par proud feel karo…
-Aur agar kabhi future me kisi din, kisi chhoti si baat se tumhe meri yaad aa bhi jaaye, to bas itna sa samajhna ki kahin na kahin se ek shant si good wish – ek chhota sa, dil se nikla positive thought – tumhare naam likha गया tha. ✨
-
-Sincerely,
-Saurav`;
-
+    /* ====== BAPPA TYPING (unchanged) ====== */
     const ganeshaFull = `Bahot maanti ho na tum inko…
 Tumhari wajah se hi main inse pray karta tha ki sab theek rahe, tum khush raho, apni zindagi aazaadi se jiyo.
 Kabhi kabhi lagta hai shayad isi wajah se unhone mujhe thoda door kar diya… 😣
 Phir bhi ek cheez se genuinely khush hoon – ki tum khush ho.
 Baaki aur kuch matter nahi karta.`;
 
-    const ytOverlay = document.getElementById('ytOverlay');
-    const letterLayer = document.getElementById('letterLayer');
-    const container = document.getElementById('messageText');
-    const ganeshaSection = document.getElementById('ganeshaSection');
     const gContainer = document.getElementById('gText');
-
-    const chars = fullMessage.split('');
-    let index = 0;
-    let typingStarted = false;
-
-    const cursor = document.createElement('span');
-    cursor.className = 'cursor';
-    container.appendChild(cursor);
-
-    const perChar = 120;
-
-    function startTypingOnce() {
-      if (typingStarted) return;
-      typingStarted = true;
-
-      letterLayer.classList.add('visible');
-
-      setTimeout(() => {
-        const interval = setInterval(() => {
-          if (index >= chars.length) {
-            clearInterval(interval);
-            cursor.remove();
-
-            // Letter fade out
-            setTimeout(() => {
-              letterLayer.style.animation = 'fadeOutAll 1s ease-out forwards';
-            }, 5000);
-
-            // 1–2 sec baad Ganesha section show + typing
-            setTimeout(() => {
-              ganeshaSection.classList.add('visible');
-              startGaneshaTyping();
-            }, 6000);
-
-            return;
-          }
-
-          const ch = chars[index];
-
-          if (ch === '\n') {
-            container.insertBefore(document.createElement('br'), cursor);
-            container.insertBefore(document.createElement('br'), cursor);
-          } else {
-            container.insertBefore(document.createTextNode(ch), cursor);
-          }
-
-          container.parentElement.scrollTop = container.parentElement.scrollHeight;
-          index++;
-        }, perChar);
-      }, 1600);
-    }
-
-    // GANESHA TYPEWRITER
     const gChars = ganeshaFull.split('');
     let gIndex = 0;
     const gCursor = document.createElement('span');
@@ -455,6 +271,12 @@ Baaki aur kuch matter nahi karta.`;
         if (gIndex >= gChars.length){
           clearInterval(interval);
           gCursor.remove();
+
+          // 5s baad YES/NO popup
+          setTimeout(() => {
+            document.getElementById('continueOverlay').classList.add('visible');
+          }, 5000);
+
           return;
         }
 
@@ -471,27 +293,67 @@ Baaki aur kuch matter nahi karta.`;
       }, gPerChar);
     }
 
-    let player;
+    window.addEventListener('load', startGaneshaTyping);
 
-    function onYouTubeIframeAPIReady(){
-      player = new YT.Player('ytPlayer', {
-        events:{ onStateChange: onPlayerStateChange }
-      });
+    /* ====== YES / NO + FULLSCREEN PHOTOS ====== */
+    const btnYes = document.getElementById('btnYes');
+    const btnNo  = document.getElementById('btnNo');
+    const result = document.getElementById('resultMsg');
+    const introLayer = document.getElementById('introLayer');
+    const introBg = document.getElementById('introBg');
+    const continueOverlay = document.getElementById('continueOverlay');
+
+    // Tumhari saari unique pics (HD slideshow)
+    const images = [
+      "https://scontent.fpat2-7.fna.fbcdn.net/v/t1.15752-9/623299758_788311696963412_6130928784699707561_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=xsAVBrIQ4jkQ7kNvwHWVWCh&_nc_oc=AdkAAhe2DBLuq22SlJEfaeXNfw21CQqTHQqSdfvc1mTlnDAaetmqdO2okd4TrQOjYiNaTb_tgb1ZXXYvyydEFOAi&_nc_zt=23&_nc_ht=scontent.fpat2-7.fna&oh=03_Q7cD4gFxNiGleRsOt7MEQOo20Fdhw9Vxjqmt8zOUb_3TCyPE5A&oe=69A689E2",
+      "https://scontent.fpat2-7.fna.fbcdn.net/v/t1.15752-9/622447955_25675667285427218_8100423536696184575_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=JeGU0Vv9-BwQ7kNvwGwY0di&_nc_oc=AdkmRfaNYsia8eYKHZ2lo--tUweO4l2u4F8-HpZ0eSrfRVga2d8InMN00lQXMwQTPiP_GGB2XnERVZnHxVAegth1&_nc_zt=23&_nc_ht=scontent.fpat2-7.fna&oh=03_Q7cD4gERjMAU4IKj04few5aThK6SXUIhpCA585qepklI14kxlg&oe=69A69A57",
+      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/622950826_947005357985208_4304513266680621551_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=FQuUZusgiXgQ7kNvwH1pAqC&_nc_oc=Adkka7QEY0FUGyImE9uXdlbk4H39YcxrtjaX6fhieqAQHeu9V60oPtubqFx8BV3wPTdxIGbl4aVVh4ILCzRVPupc&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gFbZP2bUAxFORHuocmaDp-CVSMMN612PCKKcCwl4VT54g&oe=69A6889E",
+      "https://scontent.fpat2-5.fna.fbcdn.net/v/t1.15752-9/625076670_880255524803511_561611122675682754_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=odl6C9SqeI4Q7kNvwFDmec2&_nc_oc=AdlrQcoab0naW9ESL2PDtX8QclRDs5LJ6xFNYDoLT9CJWtuXMVn28f3SZ7DNWZE2djRYx8_Nc31FzY32qpRE7rKL&_nc_zt=23&_nc_ht=scontent.fpat2-5.fna&oh=03_Q7cD4gHo_9m3tomnW5JKPQxiilpFhTS73hEJ3vfdRm12YuQ0Rw&oe=69A678BE",
+      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/621994308_903418058799911_1435237305257483363_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_ohc=WcfwKfJM91AQ7kNvwE2SyS6&_nc_oc=AdklbqN2aEiWwOLnb3IEEA0soKSBfulyWKWYYC837iWPTnXeyhROYEGsW147ZXyleaXJ736xQPkHOSQHKq1p1QfA&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gGq44Z3JuZOvRSqz36yQWNJc9sr2jb3eTB86zyKmAg7bg&oe=69A6AB22",
+      "https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/623245776_895586249508902_7371997397591949857_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_ohc=oYdJvlfkUjUQ7kNvwH8_LGF&_nc_oc=AdnaDQyEogXv20RiEI5HClwT1njWMmwWQcJ2td8RV97shWYZuA_UifYBtxjBtLWL3XzdPLUtX9XQCqYHvpwDM5kC&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gEdIkeHqIA75N1OokUvdeXGMwZswA6ZXenPaJ8aAjH8IQ&oe=69A6AD17",
+      "https://scontent.fpat2-7.fna.fbcdn.net/v/t1.15752-9/623071959_1411887210581229_5106234510912368694_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=9f807c&_nc_ohc=LuzmdEFZ08sQ7kNvwHB16xl&_nc_oc=Adk0RfbEUsdsHP50RYWWDWAsnF0Sq1RfAHQ5VZw7XNZS8XeDfn6YWViLA2RClT0rt5dZMSjEsMYEGs-Ed7GLcSQC&_nc_zt=23&_nc_ht=scontent.fpat2-7.fna&oh=03_Q7cD4gE1Q_mxBaFQZjYT3UClTn4ARi9_iHY-xlAu80SCGzdeYw&oe=69A67BE1",
+      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/623983412_3512145712261674_5500202061250518389_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=ht6CSA26QKwQ7kNvwGQCl4S&_nc_oc=AdkhynRadeNZqPonoRlwfnynHuJ-2ziMBLKMzduhy0BRwj3EFxx06tLOEhkvgfWsjQjgM9Zhf59jRcx8p-ZAKemm&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gFIyPfFpAywh-MMvfajfyh_kEzVoAawa0ctXzPjqRka_g&oe=69A6872E",
+      "https://scontent.fpat2-1.fna.fbcdn.net/v/t1.15752-9/620988499_1284047206903132_5798597311009508610_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_ohc=ktY4Ge7WyLsQ7kNvwED3eDP&_nc_oc=Adm-mAqWsRhOFDEzwHXCh1jZox04fbZa8TKx4sSKZacLEl3rRnhTs6eDFLBzXu7bEOgvxHVrNRMoWZsgrQaugMU9&_nc_zt=23&_nc_ht=scontent.fpat2-1.fna&oh=03_Q7cD4gHTBGDSYa2-jLNvjtDkeJcA8w6G3RyYSP-LHIsOeKUcBA&oe=69A69578",
+      "https://scontent.fpat2-1.fna.fbcdn.net/v/t1.15752-9/554318464_810588545066495_7711168136695813350_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_ohc=E7GuxTTgdQIQ7kNvwHosLLy&_nc_oc=Adng28VCGoIf2aXkMCbhvdRfJBwq3UFzg9rFvU_1GnKF_al7iWBd4g79X9x9hKSzmec2_ltcMPI6AdxvGKbRfMth&_nc_zt=23&_nc_ht=scontent.fpat2-1.fna&oh=03_Q7cD4gHUNItKprq5pdzLe9k-J7tdt11rnTNfnY6jFtlnpv-fRg&oe=69A69137",
+      "https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/617539299_779491687775749_714475733150328202_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_ohc=jh7BKLK_qskQ7kNvwEEvzjl&_nc_oc=AdmY7T7K-_Ml5JbxzF2KLmRF192_65ACopOn4I0WeRqaAgLsBCoJDOCtziTYxN2vjaHYH3WbMNkeAuaDanZywQ2w&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gFURyCesRGhg94IgdH0Nb9ac1TjvSE94XKT4qM0m-58aw&oe=69A6A59D",
+      "https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/507848219_666974609653808_2576493738857289688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=difQIskjG3gQ7kNvwGh_o50&_nc_oc=Adl9AqDmj5I3Q0JV6gBT52t7rFHRT5wJ87B9oDl1EyzyWAW4UaS9sr0DuC40yne7n5dTU7Q9sghp1qvGUBU-_eGS&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gF-wparjyBDQ8B9GybwalHYUJHgd0F6coLa-mKudLWMqQ&oe=69A6AD1E",
+      "https://scontent.fpat2-5.fna.fbcdn.net/v/t1.15752-9/538612628_1446945586583922_5095965929542328960_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=AnCiJ96GgBQQ7kNvwGyOF4C&_nc_oc=Admv9rrB5kPbu8N8EjIQuXINeCrEZAqtn_9XgEKXPQL4bx1TZl1xkgGoH7UlDGbSmVMJhgFn5scbmui4s0GXi3q1&_nc_zt=23&_nc_ht=scontent.fpat2-5.fna&oh=03_Q7cD4gGLI855ilMREd70uFnC6vMSBnKEXhPl7yNie3SHzcsf-w&oe=69A6ADAD",
+      "https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/507007323_1744512706141251_8043408747550666570_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_ohc=J5lMh3Zbt04Q7kNvwESmUgG&_nc_oc=Adnl3dVergEKeAEXSxQBBJ6q_lDyVeeCorPam2EgTF3I77Xc60LrKEnxpNWYQ5kXKCdG38TkCXex1RYCG420JSmI&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gGbPRvQXqfmoXMyzWDa_Je6oH69vc05sLhbA3fg7d5MbQ&oe=69A68BE5"
+    ];
+
+    let currentImg = 0;
+
+    function setBg(i){
+      introBg.style.backgroundImage = `url('${images[i]}')`;
     }
 
-    function onPlayerStateChange(event){
-      if (event.data === YT.PlayerState.PLAYING){
-        ytOverlay.classList.add('hidden');
-        setTimeout(() => {
-          ytOverlay.style.display = 'none';
-          startTypingOnce();
-        }, 700);
-      }
+    function startSlideshow(){
+      setBg(currentImg);
+      setInterval(() => {
+        currentImg = (currentImg + 1) % images.length;
+        setBg(currentImg);
+      }, 15000);
     }
+
+    function showIntroAfterMessage(delay){
+      setTimeout(() => {
+        continueOverlay.classList.remove('visible');
+        introLayer.classList.add('visible');
+        startSlideshow() ;
+      }, delay);
+    }
+
+    btnYes.addEventListener('click', () => {
+      result.textContent = "Sirf tumhare liye kuch chhoti‑si cheezein banayi hain,\nthodi si mehnat se… dekhogi?";
+      result.classList.add('visible');
+      showIntroAfterMessage(2000);
+    });
+
+    btnNo.addEventListener('click', () => {
+      result.textContent = "Kitne bigdail ho yrr tum…\nitni mehnat se banayi hui cheez ko koi aise mana karta hai kya? Ab dekho nahi toh katti. 😤";
+      result.classList.add('visible');
+      showIntroAfterMessage(2500);
+    });
   </script>
-
-  <!-- YT API load at end -->
-  <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
-
