@@ -11,7 +11,7 @@
       background:transparent;
     }
 
-    /* RADHA-KRISHNA BACKGROUND – ALWAYS ON */
+    /* RADHA-KRISHNA BACKGROUND – STARTING PART */
     .bg-wrapper{
       position:fixed;inset:0;overflow:hidden;z-index:-3;
     }
@@ -21,7 +21,6 @@
       background-size:cover;background-position:center;background-repeat:no-repeat;
     }
 
-    /* LIGHT TINT TO HELP CAMOUFLAGE OVERLAYS */
     .bg-tint{
       position:fixed;inset:0;z-index:-2;
       background:radial-gradient(circle at center,
@@ -225,7 +224,7 @@
       to{opacity:0;visibility:hidden;}
     }
 
-    /* GANESHA SECTION – TYPE EFFECT */
+    /* GANESHA SECTION */
     .ganesha-section{
       position:fixed;
       inset:0;
@@ -293,7 +292,7 @@
       51%,100%{opacity:0;}
     }
 
-    /* YES/NO POPUP (Bappa ke baad) */
+    /* YES/NO POPUP */
     .continue-overlay{
       position:fixed;
       inset:0;
@@ -385,7 +384,7 @@
       transform:translateY(0);
     }
 
-    /* FINAL SCENE: FULLSCREEN PHOTOS BACKGROUND + SHEET */
+    /* FINAL SCENE: FULLSCREEN PHOTOS BACKGROUND + TRANSPARENT SHEET */
     .intro-layer{
       position:fixed;
       inset:0;
@@ -399,18 +398,19 @@
       pointer-events:auto;
     }
 
-    .intro-bg{
-      position:absolute;
+    .bg-slideshow{
+      position:fixed;
       inset:0;
-      background-size:cover;
+      background-color:#000;
       background-position:center;
       background-repeat:no-repeat;
+      background-size:cover;
       transition:background-image 0.6s ease-in-out;
       z-index:0;
     }
 
-    .circle-letter{
-      position:absolute;
+    .center-sheet{
+      position:fixed;
       top:50%;
       left:50%;
       transform:translate(-50%,-50%);
@@ -418,29 +418,30 @@
       max-width:420px;
       min-height:120px;
       border-radius:20px;
-      background:rgba(5,3,15,0.18); /* extra transparent */
-      border:1px solid rgba(255,240,210,0.6);
-      box-shadow:
-        0 0 14px rgba(0,0,0,0.6),
-        0 0 12px rgba(255,220,180,0.4);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
+      background:rgba(5,3,15,0.08);
+      border:1px solid rgba(255,240,210,0.4);
+      box-shadow:0 0 8px rgba(0,0,0,0.5);
       z-index:1;
+    }
+
+    .rk-layer-hidden{
+      animation:fadeOutAll 1s ease-out forwards;
     }
   </style>
 </head>
 <body>
-  <!-- Background -->
-  <div class="bg-wrapper"><div class="bg-image"></div></div>
-  <div class="bg-tint"></div>
+  <!-- RADHA-KRISHNA + SNOW LAYER -->
+  <div id="rkLayer">
+    <div class="bg-wrapper"><div class="bg-image"></div></div>
+    <div class="bg-tint"></div>
 
-  <!-- Snow -->
-  <div class="snow-layer">
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow-layer">
+      <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+      <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    </div>
   </div>
 
-  <!-- STEP 1: YT PLAYER WITH PLAYLIST -->
+  <!-- STEP 1: YT PLAYER -->
   <div class="yt-overlay" id="ytOverlay">
     <div class="yt-container">
       <iframe
@@ -475,7 +476,7 @@
     </div>
   </div>
 
-  <!-- STEP 3: GANESHA GIF + TEXT -->
+  <!-- STEP 3: BAPPA -->
   <div class="ganesha-section" id="ganeshaSection">
     <div class="ganesha-inner">
       <div class="ganesha-gif-wrap">
@@ -498,10 +499,10 @@
     </div>
   </div>
 
-  <!-- STEP 5: FULLSCREEN PHOTOS BACKGROUND + TRANSPARENT SHEET -->
+  <!-- STEP 5: FULLSCREEN PHOTOS BG -->
   <div class="intro-layer" id="introLayer">
-    <div class="intro-bg" id="introBg"></div>
-    <div class="circle-letter"></div>
+    <div class="bg-slideshow" id="bgSlide"></div>
+    <div class="center-sheet"></div>
   </div>
 
   <script>
@@ -567,12 +568,10 @@ Baaki aur kuch matter nahi karta.`;
             clearInterval(interval);
             cursor.remove();
 
-            // Letter fade out
             setTimeout(() => {
               letterLayer.style.animation = 'fadeOutAll 1s ease-out forwards';
             }, 5000);
 
-            // 1–2 sec baad Ganesha section show + typing
             setTimeout(() => {
               ganeshaSection.classList.add('visible');
               startGaneshaTyping();
@@ -583,7 +582,7 @@ Baaki aur kuch matter nahi karta.`;
 
           const ch = chars[index];
 
-          if (ch === '\\n') {
+          if (ch === '\n') {
             container.insertBefore(document.createElement('br'), cursor);
             container.insertBefore(document.createElement('br'), cursor);
           } else {
@@ -610,7 +609,7 @@ Baaki aur kuch matter nahi karta.`;
           clearInterval(interval);
           gCursor.remove();
 
-          // Bappa text khatam hone ke baad YES/NO popup
+          // Bappa ke baad YES/NO popup
           setTimeout(() => {
             document.getElementById('continueOverlay').classList.add('visible');
           }, 1500);
@@ -619,7 +618,7 @@ Baaki aur kuch matter nahi karta.`;
 
         const ch = gChars[gIndex];
 
-        if (ch === '\\n'){
+        if (ch === '\n'){
           gContainer.insertBefore(document.createElement('br'), gCursor);
           gContainer.insertBefore(document.createElement('br'), gCursor);
         } else {
@@ -648,13 +647,14 @@ Baaki aur kuch matter nahi karta.`;
       }
     }
 
-    /* YES/NO + FULLSCREEN PHOTOS */
+    /* YES/NO + PHOTOS BG */
     const btnYes = document.getElementById('btnYes');
     const btnNo  = document.getElementById('btnNo');
     const result = document.getElementById('resultMsg');
     const introLayer = document.getElementById('introLayer');
-    const introBg = document.getElementById('introBg');
+    const bgSlide = document.getElementById('bgSlide');
     const continueOverlay = document.getElementById('continueOverlay');
+    const rkLayer = document.getElementById('rkLayer');
 
     const images = [
       "https://scontent.fpat2-7.fna.fbcdn.net/v/t1.15752-9/623299758_788311696963412_6130928784699707561_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=xsAVBrIQ4jkQ7kNvwHWVWCh&_nc_oc=AdkAAhe2DBLuq22SlJEfaeXNfw21CQqTHQqSdfvc1mTlnDAaetmqdO2okd4TrQOjYiNaTb_tgb1ZXXYvyydEFOAi&_nc_zt=23&_nc_ht=scontent.fpat2-7.fna&oh=03_Q7cD4gFxNiGleRsOt7MEQOo20Fdhw9Vxjqmt8zOUb_3TCyPE5A&oe=69A689E2",
@@ -676,7 +676,7 @@ Baaki aur kuch matter nahi karta.`;
     let currentImg = 0;
 
     function setBg(i){
-      introBg.style.backgroundImage = `url('${images[i]}')`;
+      bgSlide.style.backgroundImage = `url('${images[i]}')`;
     }
 
     function startSlideshow(){
@@ -687,9 +687,10 @@ Baaki aur kuch matter nahi karta.`;
       }, 15000);
     }
 
-    function showIntroAfterMessage(delay){
+    function startFinalScene(delay){
       setTimeout(() => {
         continueOverlay.classList.remove('visible');
+        rkLayer.classList.add('rk-layer-hidden');
         introLayer.classList.add('visible');
         startSlideshow();
       }, delay);
@@ -698,17 +699,17 @@ Baaki aur kuch matter nahi karta.`;
     btnYes.addEventListener('click', () => {
       result.textContent = "Sirf tumhare liye kuch chhoti‑si cheezein banayi hain,\nthodi si mehnat se… dekhogi?";
       result.classList.add('visible');
-      showIntroAfterMessage(2000);
+      startFinalScene(2000);
     });
 
     btnNo.addEventListener('click', () => {
       result.textContent = "Kitne bigdail ho yrr tum…\nitni mehnat se banayi hui cheez ko koi aise mana karta hai kya? Ab dekho nahi toh katti. 😤";
       result.classList.add('visible');
-      showIntroAfterMessage(2500);
+      startFinalScene(2500);
     });
   </script>
 
-  <!-- YT API load at end -->
   <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
