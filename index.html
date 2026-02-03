@@ -13,11 +13,10 @@
           rgba(0,0,0,0.05) 0%,
           rgba(0,0,0,0.4) 55%,
           rgba(0,0,0,0.7) 100%),
-        /* RADHA KRISHNA BG */
         url("https://img.freepik.com/free-photo/krishna-radha-illustration_23-2150949143.jpg") center/cover no-repeat;
     }
 
-    /* PETAL FALL (instead of snow) */
+    /* PETAL FALL */
     .petal-layer{
       position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;
     }
@@ -30,7 +29,6 @@
       box-shadow:0 0 8px rgba(255,160,200,0.9),0 0 16px rgba(255,120,180,0.6);
       animation:petalFall linear infinite;
     }
-    /* different speeds / positions */
     .petal:nth-child(1){left:5%;animation-duration:12s;animation-delay:0s;}
     .petal:nth-child(2){left:12%;animation-duration:16s;animation-delay:2s;}
     .petal:nth-child(3){left:20%;animation-duration:14s;animation-delay:1s;}
@@ -51,7 +49,7 @@
       100%{transform:translate3d(20px,105vh,0) rotate(180deg);opacity:0;}
     }
 
-    /* YOUTUBE OVERLAY – PLAYER */
+    /* YOUTUBE OVERLAY */
     .yt-overlay{
       position:fixed;inset:0;
       display:flex;align-items:center;justify-content:center;
@@ -381,7 +379,7 @@
       transform:translateY(0);
     }
 
-    /* === NEW: DOUBLE SHEET SECTION AFTER YES/NO === */
+    /* STEP 5: DOUBLE SHEET (FINAL) */
     .double-sheet-section{
       position:fixed;
       inset:0;
@@ -404,6 +402,7 @@
       max-width:520px;
       width:100%;
       padding:0 16px;
+      position:relative;
     }
 
     .sheet{
@@ -421,40 +420,56 @@
       overflow:hidden;
     }
 
+    .sheet-left{flex:1;}
+    .sheet-right{flex:1;}
+
+    .image-title{
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:0.6px;
+      text-align:center;
+      color:#ffe9c0;
+      margin-bottom:6px;
+      text-shadow:0 1px 4px rgba(0,0,0,0.9);
+    }
+
     .sheet-title{
       font-size:13px;
+      font-weight:600;
       letter-spacing:0.8px;
       text-align:center;
       color:#ffe9c0;
-      margin-bottom:8px;
-      text-shadow:0 1px 3px rgba(0,0,0,0.7);
+      margin-bottom:6px;
+      text-shadow:0 1px 4px rgba(0,0,0,0.9);
     }
 
-    /* slideshow inside left sheet */
-    .slideshow{
+    /* LEFT FULL-IMAGE SHEET */
+    .sheet-left-inner{
       position:relative;
       width:100%;
-      height:180px;
-      border-radius:16px;
+      height:200px;
+      border-radius:18px;
       overflow:hidden;
     }
-    .slide{
+    .slide-full{
       position:absolute;
       inset:0;
       background-position:center;
       background-size:cover;
+      background-repeat:no-repeat;
       opacity:0;
       transition:opacity 0.9s ease;
     }
-    .slide.active{
+    .slide-full.active{
       opacity:1;
     }
 
-    /* right sheet typewriter */
+    /* RIGHT SHEET TEXT AREA */
     .sheet-text-wrap{
-      max-height:190px;
-      overflow:hidden;
+      max-height:210px;
+      overflow:auto;
       margin-top:4px;
+      padding-right:4px;
     }
     .sheet-text{
       font-size:12px;
@@ -471,18 +486,37 @@
       animation:caretBlink 0.8s steps(1,end) infinite;
       vertical-align:baseline;
     }
+
+    /* EMOJI POINTERS OUTSIDE SHEETS */
+    .finger-left,
+    .finger-right{
+      position:absolute;
+      font-size:26px;
+      text-shadow:0 2px 4px rgba(0,0,0,0.9);
+      pointer-events:none;
+      opacity:0.95;
+    }
+    .finger-left{
+      bottom:100%;
+      left:8%;
+      margin-bottom:8px;
+    }
+    .finger-right{
+      bottom:100%;
+      right:8%;
+      margin-bottom:8px;
+    }
   </style>
 </head>
 <body>
-  <!-- PETALS IN BACKGROUND -->
+  <!-- PETALS -->
   <div class="petal-layer">
-    <!-- 12 petals -->
     <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
     <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
     <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
   </div>
 
-  <!-- STEP 1: YT PLAYER -->
+  <!-- STEP 1: YT -->
   <div class="yt-overlay" id="ytOverlay">
     <div class="yt-container">
       <iframe
@@ -499,17 +533,12 @@
   <!-- STEP 2: LETTER -->
   <div class="letter-layer" id="letterLayer">
     <div class="letter-backdrop"></div>
-
     <div class="letter-box">
       <div class="letter-inner">
         <div class="scroll-bar top"></div>
         <div class="scroll-bar bottom"></div>
         <div class="shine"></div>
-
-        <div class="letter-title">
-          To my dearest angel..
-        </div>
-
+        <div class="letter-title">To my dearest angel..</div>
         <div class="letter-body-wrap">
           <div class="letter-body" id="messageText"></div>
         </div>
@@ -527,7 +556,7 @@
     </div>
   </div>
 
-  <!-- STEP 4: YES / NO POPUP -->
+  <!-- STEP 4: YES / NO -->
   <div class="continue-overlay" id="continueOverlay">
     <div class="continue-box">
       <div class="continue-title">Shall we continue.?</div>
@@ -540,22 +569,24 @@
     </div>
   </div>
 
-  <!-- STEP 5: DOUBLE SHEET (NEW PAGE EFFECT) -->
+  <!-- STEP 5: DOUBLE SHEET (AFTER YES/NO) -->
   <div class="double-sheet-section" id="doubleSheetSection">
     <div class="double-sheet-wrapper">
-      <!-- LEFT: slideshow sheet -->
-      <div class="sheet">
-        <div class="sheet-title">some little memories..</div>
-        <div class="slideshow" id="slideshow">
-          <!-- change these image URLs to your pics -->
-          <div class="slide active" style="background-image:url('https://images.pexels.com/photos/1028725/pexels-photo-1028725.jpeg');"></div>
-          <div class="slide" style="background-image:url('https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg');"></div>
-          <div class="slide" style="background-image:url('https://images.pexels.com/photos/556669/pexels-photo-556669.jpeg');"></div>
+      <div class="finger-left">👈</div>
+      <div class="finger-right">👉 ?</div>
+
+      <!-- LEFT: PHOTOS -->
+      <div class="sheet sheet-left">
+        <div class="image-title">
+          ise jaante ho? ye sab isi ke liye banaya hai ... 😁
+        </div>
+        <div class="sheet-left-inner" id="leftSlideshow">
+          <!-- slides from JS -->
         </div>
       </div>
 
-      <!-- RIGHT: continued text sheet -->
-      <div class="sheet">
+      <!-- RIGHT: MORE WORDS -->
+      <div class="sheet sheet-right">
         <div class="sheet-title">and a few more words..</div>
         <div class="sheet-text-wrap">
           <div class="sheet-text" id="sheetText"></div>
@@ -588,7 +619,7 @@ Bas itna sa hai ki jo bhi dil me gratitude, warmth, attachment aur respect tha, 
 Thank you – un sab dino ke liye jahan tumne, shayad bina jaane, meri life ko thoda sa halka sa, thoda sa behtar bana diya.
 Thank you un moments ke liye jahan tumhari presence ne cheezein sirf easy ya light nahi, balki genuinely special bana di.
 Aaj bhi dil se yehi dua nikalti hai ki tumhe aage aane wale har phase me clarity mile, ache decisions milen, aise log milen jo tumhe waise hi samajh saken jaise tum deserve karti ho, aur tum hamesha apne aap par proud feel karo…
-Aur agar kabhi future me kisi din, kisi chhoti si baat se tumhe meri yaad aa bhi jaaye, to bas itna sa samajhna ki kahin na kahin se ek shant si good wish – ek chhota sa, dil se nikla positive thought – tumhare naam likha गया tha. ✨
+Aur agar kabhi future me kisi din, kisi chhoti si baat se tumhe meri yaad aa bhi jaaye, to bas itna sa samajhna ki kahin na kahin se ek shant si good wish – ek chhota sa, dil se nikla positive thought – tumhare naam likha gaya tha. ✨
 
 Sincerely,
 Saurav`;
@@ -599,7 +630,6 @@ Kabhi kabhi lagta hai shayad isi wajah se unhone mujhe thoda door kar diya… �
 Phir bhi ek cheez se genuinely khush hoon – ki tum khush ho.
 Baaki aur kuch matter nahi karta.`;
 
-    /* CONTINUED TEXT FOR RIGHT SHEET */
     const sheetFull = `Ab yaha se jo bhi aage likha hai,
 wo bas ek chhota sa extra chapter hai tumhare naam se…
 koi demand nahi, koi pressure nahi,
@@ -661,7 +691,7 @@ aur thoda sa aur gratitude – bas itna sa.`;
       }, 1600);
     }
 
-    // GANESHA TYPEWRITER
+    /* GANESHA TYPEWRITER */
     const gChars = ganeshaFull.split('');
     let gIndex = 0;
     const gCursor = document.createElement('span');
@@ -712,7 +742,7 @@ aur thoda sa aur gratitude – bas itna sa.`;
       }
     }
 
-    /* YES/NO */
+    /* YES/NO -> SHOW DOUBLE SHEETS */
     const btnYes = document.getElementById('btnYes');
     const btnNo  = document.getElementById('btnNo');
     const result = document.getElementById('resultMsg');
@@ -722,7 +752,6 @@ aur thoda sa aur gratitude – bas itna sa.`;
     function closePopup(delay){
       setTimeout(() => {
         continueOverlay.classList.remove('visible');
-        // show the double sheets "next page"
         doubleSheetSection.classList.add('visible');
         startSlideshow();
         startSheetTyping();
@@ -741,24 +770,39 @@ aur thoda sa aur gratitude – bas itna sa.`;
       closePopup(2500);
     });
 
-    /* SLIDESHOW LOGIC (left sheet) */
+    /* LEFT SLIDESHOW (full cover images) */
+    const photoUrls = [
+      "https://scontent.fpat2-3.fna.fbcdn.net/v/t1.15752-9/622545384_1211933343884874_9047688104074483996_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=GrCTdREhRxUQ7kNvwEtdalH&_nc_oc=AdnPD5zJemDC51PcGTbkS1qfcD9T31jXCUi5DKyy_TbxPdqPtHk3Eqv5eXTCqbMTOqYeneF4qUF0CCq4NqaN6quI&_nc_zt=23&_nc_ht=scontent.fpat2-3.fna&oh=03_Q7cD4gG95vQ3u-EQLMf6I1QLrcx5vOW4LfMPpYXPaLSSA8LvuQ&oe=69A92214",
+      "https://scontent.fpat2-1.fna.fbcdn.net/v/t1.15752-9/622866816_2420046891748696_5391229335897486637_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_ohc=7p499JgVXpAQ7kNvwFglES3&_nc_oc=AdlDoQRFajB_Co864zt89DHb91-FjnQxG3Cs6Zky31_RCaQkfqered1sdUT79gTgcrzyjuktKwqhtXyw7nTcvh76&_nc_zt=23&_nc_ht=scontent.fpat2-1.fna&oh=03_Q7cD4gFkAztIaqk5S13XcXbeT_Vgk1L_oDiJXY3osIKKAHLjaQ&oe=69A92EC1",
+      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/621153261_939180279280809_7722870075001620847_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=PnOL8d6ek-AQ7kNvwHNxOZL&_nc_oc=Adk4IT5vw6maviTQ28abrfXuhUuMLVuGpldJfuKSFD3mE3c4HGZN7bqDnosiiyZc9tck7mdGTNC9Tc0xaYOLBTAE&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gFsv3yp22aDKob32W2dSMBeixzkvpplrpwcp4rdtyHTUg&oe=69A927D6",
+      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/621534461_1390019806090490_5411646053077396350_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_ohc=kmFpHXAN2SEQ7kNvwH7fT8s&_nc_oc=AdlRbY0g7OEFw_3oHnUSmr0yrZq9xL9-qyO2w1CGGm_x1DnANOROTbo51lohwKiadKoh-AYfU5cYneHcvdbJ-e6Z&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gGHt6cebuwBRRxZxDh_ig9h_j1_VIUd8zzmMbdC5o4XEQ&oe=69A92388"
+      // add more if you want
+    ];
+
+    const slideshowContainer = document.getElementById('leftSlideshow');
+    photoUrls.forEach((url, index) => {
+      const slide = document.createElement('div');
+      slide.className = 'slide-full';
+      slide.style.backgroundImage = `url('${url}')`;
+      if (index === 0) slide.classList.add('active');
+      slideshowContainer.appendChild(slide);
+    });
+
     let slideIndexAuto = 0;
-    let slideInterval;
     function startSlideshow(){
-      const slides = document.querySelectorAll('.slide');
+      const slides = document.querySelectorAll('.slide-full');
       if (!slides.length) return;
+      slideIndexAuto = 0;
       slides.forEach(s => s.classList.remove('active'));
       slides[0].classList.add('active');
-      slideIndexAuto = 0;
-
-      slideInterval = setInterval(() => {
+      setInterval(() => {
         slides[slideIndexAuto].classList.remove('active');
         slideIndexAuto = (slideIndexAuto + 1) % slides.length;
         slides[slideIndexAuto].classList.add('active');
-      }, 5000);
+      }, 8000);
     }
 
-    /* RIGHT SHEET TYPEWRITER */
+    /* RIGHT SHEET TYPEWRITER + AUTO SCROLL */
     const sheetContainer = document.getElementById('sheetText');
     const sheetChars = sheetFull.split('');
     let sheetIndex = 0;
@@ -768,6 +812,7 @@ aur thoda sa aur gratitude – bas itna sa.`;
     const sheetPerChar = 110;
 
     function startSheetTyping(){
+      const wrap = sheetContainer.parentElement;
       const interval = setInterval(() => {
         if (sheetIndex >= sheetChars.length){
           clearInterval(interval);
@@ -781,6 +826,7 @@ aur thoda sa aur gratitude – bas itna sa.`;
         } else {
           sheetContainer.insertBefore(document.createTextNode(ch), sheetCursor);
         }
+        wrap.scrollTop = wrap.scrollHeight;
         sheetIndex++;
       }, sheetPerChar);
     }
@@ -789,5 +835,4 @@ aur thoda sa aur gratitude – bas itna sa.`;
   <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
-
 
