@@ -13,55 +13,42 @@
           rgba(0,0,0,0.05) 0%,
           rgba(0,0,0,0.4) 55%,
           rgba(0,0,0,0.7) 100%),
-        url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=epR98qxa3hYQ7kNvwF2uUj9&_nc_oc=AdlMhYsys0gEoFm8rFrZ1s890hLk4Q_VvTR9LSjSL-q_kMp9wpsecApWijzrd0fM1Zx33k4AvTBHX9yerV1dhK75&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4QGuWaFVljAaY0NSWheEu-u5oOUNkMmcHHb_X4PvAHiKgQ&oe=69A2762D");
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
+        /* RADHA KRISHNA BG */
+        url("https://img.freepik.com/free-photo/krishna-radha-illustration_23-2150949143.jpg") center/cover no-repeat;
     }
 
-    /* SNOWFALL – dense */
-    .snow-layer{
+    /* PETAL FALL (instead of snow) */
+    .petal-layer{
       position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;
     }
-    .snow{
-      position:absolute;top:-10%;width:3px;height:3px;border-radius:50%;
-      background:radial-gradient(circle,#f8ffff 0%,rgba(255,255,255,0) 70%);
-      opacity:0.9;animation:fall linear infinite;
-      box-shadow:0 0 8px rgba(180,230,255,0.9),0 0 16px rgba(120,200,255,0.6);
+    .petal{
+      position:absolute;top:-10%;
+      width:18px;height:24px;
+      background:radial-gradient(circle at 30% 30%, #ffe4f0 0%, #ff82b2 40%, #d93f7a 100%);
+      border-radius:60% 40% 60% 40%;
+      opacity:0.9;
+      box-shadow:0 0 8px rgba(255,160,200,0.9),0 0 16px rgba(255,120,180,0.6);
+      animation:petalFall linear infinite;
     }
+    /* different speeds / positions */
+    .petal:nth-child(1){left:5%;animation-duration:12s;animation-delay:0s;}
+    .petal:nth-child(2){left:12%;animation-duration:16s;animation-delay:2s;}
+    .petal:nth-child(3){left:20%;animation-duration:14s;animation-delay:1s;}
+    .petal:nth-child(4){left:28%;animation-duration:18s;animation-delay:3s;}
+    .petal:nth-child(5){left:36%;animation-duration:15s;animation-delay:0.5s;}
+    .petal:nth-child(6){left:44%;animation-duration:19s;animation-delay:1.5s;}
+    .petal:nth-child(7){left:52%;animation-duration:17s;animation-delay:2.5s;}
+    .petal:nth-child(8){left:60%;animation-duration:20s;animation-delay:1s;}
+    .petal:nth-child(9){left:68%;animation-duration:16s;animation-delay:0.8s;}
+    .petal:nth-child(10){left:76%;animation-duration:18s;animation-delay:2.3s;}
+    .petal:nth-child(11){left:84%;animation-duration:14s;animation-delay:1.7s;}
+    .petal:nth-child(12){left:92%;animation-duration:19s;animation-delay:3.1s;}
 
-    .snow:nth-child(1){left:3%;animation-duration:10s;animation-delay:0s;}
-    .snow:nth-child(2){left:8%;animation-duration:12s;animation-delay:1s;}
-    .snow:nth-child(3){left:13%;animation-duration:14s;animation-delay:2s;}
-    .snow:nth-child(4){left:18%;animation-duration:11s;animation-delay:3s;}
-    .snow:nth-child(5){left:23%;animation-duration:16s;animation-delay:1.5s;}
-    .snow:nth-child(6){left:28%;animation-duration:13s;animation-delay:0.5s;}
-    .snow:nth-child(7){left:33%;animation-duration:15s;animation-delay:2.5s;}
-    .snow:nth-child(8){left:38%;animation-duration:17s;animation-delay:3.5s;}
-
-    .snow:nth-child(9){left:43%;animation-duration:12s;animation-delay:0.8s;}
-    .snow:nth-child(10){left:48%;animation-duration:14s;animation-delay:1.8s;}
-    .snow:nth-child(11){left:53%;animation-duration:16s;animation-delay:2.8s;}
-    .snow:nth-child(12){left:58%;animation-duration:18s;animation-delay:3.8s;}
-    .snow:nth-child(13){left:63%;animation-duration:13s;animation-delay:0.3s;}
-    .snow:nth-child(14){left:68%;animation-duration:15s;animation-delay:1.3s;}
-    .snow:nth-child(15){left:73%;animation-duration:17s;animation-delay:2.3s;}
-    .snow:nth-child(16){left:78%;animation-duration:19s;animation-delay:3.3s;}
-
-    .snow:nth-child(17){left:83%;animation-duration:11s;animation-delay:0.6s;}
-    .snow:nth-child(18){left:88%;animation-duration:13s;animation-delay:1.6s;}
-    .snow:nth-child(19){left:93%;animation-duration:15s;animation-delay:2.6s;}
-    .snow:nth-child(20){left:98%;animation-duration:17s;animation-delay:3.6s;}
-    .snow:nth-child(21){left:50%;animation-duration:20s;animation-delay:0.2s;}
-    .snow:nth-child(22){left:5%;animation-duration:19s;animation-delay:1.2s;}
-    .snow:nth-child(23){left:95%;animation-duration:18s;animation-delay:2.2s;}
-    .snow:nth-child(24){left:25%;animation-duration:21s;animation-delay:3.2s;}
-
-    @keyframes fall{
-      0%{transform:translate3d(0,0,0) scale(1);opacity:0;}
+    @keyframes petalFall{
+      0%{transform:translate3d(0,0,0) rotate(0deg);opacity:0;}
       10%{opacity:1;}
-      50%{transform:translate3d(-10px,50vh,0) scale(1.05);}
-      100%{transform:translate3d(10px,105vh,0) scale(0.9);opacity:0;}
+      50%{transform:translate3d(-20px,50vh,0) rotate(90deg);}
+      100%{transform:translate3d(20px,105vh,0) rotate(180deg);opacity:0;}
     }
 
     /* YOUTUBE OVERLAY – PLAYER */
@@ -393,18 +380,106 @@
       opacity:1;
       transform:translateY(0);
     }
+
+    /* === NEW: DOUBLE SHEET SECTION AFTER YES/NO === */
+    .double-sheet-section{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:2;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 1s ease;
+    }
+    .double-sheet-section.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .double-sheet-wrapper{
+      display:flex;
+      gap:14px;
+      max-width:520px;
+      width:100%;
+      padding:0 16px;
+    }
+
+    .sheet{
+      flex:1;
+      border-radius:22px;
+      background:rgba(9,6,19,0.55);
+      border:1px solid rgba(255,230,190,0.85);
+      box-shadow:
+        0 0 26px rgba(0,0,0,0.85),
+        0 0 24px rgba(255,215,170,0.45);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      padding:14px 14px 16px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .sheet-title{
+      font-size:13px;
+      letter-spacing:0.8px;
+      text-align:center;
+      color:#ffe9c0;
+      margin-bottom:8px;
+      text-shadow:0 1px 3px rgba(0,0,0,0.7);
+    }
+
+    /* slideshow inside left sheet */
+    .slideshow{
+      position:relative;
+      width:100%;
+      height:180px;
+      border-radius:16px;
+      overflow:hidden;
+    }
+    .slide{
+      position:absolute;
+      inset:0;
+      background-position:center;
+      background-size:cover;
+      opacity:0;
+      transition:opacity 0.9s ease;
+    }
+    .slide.active{
+      opacity:1;
+    }
+
+    /* right sheet typewriter */
+    .sheet-text-wrap{
+      max-height:190px;
+      overflow:hidden;
+      margin-top:4px;
+    }
+    .sheet-text{
+      font-size:12px;
+      line-height:1.7;
+      white-space:pre-wrap;
+      color:#fdf7e9;
+      text-shadow:0 1px 3px rgba(0,0,0,0.7);
+    }
+    .sheet-cursor{
+      display:inline-block;
+      width:2px;
+      background:rgba(255,255,255,0.9);
+      margin-left:2px;
+      animation:caretBlink 0.8s steps(1,end) infinite;
+      vertical-align:baseline;
+    }
   </style>
 </head>
 <body>
-  <!-- Snow only (background is on body) -->
-  <div class="snow-layer">
-    <!-- 24 flakes -->
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
-    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+  <!-- PETALS IN BACKGROUND -->
+  <div class="petal-layer">
+    <!-- 12 petals -->
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
   </div>
 
   <!-- STEP 1: YT PLAYER -->
@@ -465,6 +540,30 @@
     </div>
   </div>
 
+  <!-- STEP 5: DOUBLE SHEET (NEW PAGE EFFECT) -->
+  <div class="double-sheet-section" id="doubleSheetSection">
+    <div class="double-sheet-wrapper">
+      <!-- LEFT: slideshow sheet -->
+      <div class="sheet">
+        <div class="sheet-title">some little memories..</div>
+        <div class="slideshow" id="slideshow">
+          <!-- change these image URLs to your pics -->
+          <div class="slide active" style="background-image:url('https://images.pexels.com/photos/1028725/pexels-photo-1028725.jpeg');"></div>
+          <div class="slide" style="background-image:url('https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg');"></div>
+          <div class="slide" style="background-image:url('https://images.pexels.com/photos/556669/pexels-photo-556669.jpeg');"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: continued text sheet -->
+      <div class="sheet">
+        <div class="sheet-title">and a few more words..</div>
+        <div class="sheet-text-wrap">
+          <div class="sheet-text" id="sheetText"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const fullMessage = `The dearest angel of my life,
 Kabhi kabhi zindagi me kuch log aise mil jaate hain jo bina awaaz kiye, bina zyada kuch maange, dil ka ek bohot hi khaas hissa ban jaate hain.
@@ -499,6 +598,13 @@ Tumhari wajah se hi main inse pray karta tha ki sab theek rahe, tum khush raho, 
 Kabhi kabhi lagta hai shayad isi wajah se unhone mujhe thoda door kar diya… 😣
 Phir bhi ek cheez se genuinely khush hoon – ki tum khush ho.
 Baaki aur kuch matter nahi karta.`;
+
+    /* CONTINUED TEXT FOR RIGHT SHEET */
+    const sheetFull = `Ab yaha se jo bhi aage likha hai,
+wo bas ek chhota sa extra chapter hai tumhare naam se…
+koi demand nahi, koi pressure nahi,
+sirf thoda sa aur pyaar, thodi si aur honesty,
+aur thoda sa aur gratitude – bas itna sa.`;
 
     const ytOverlay = document.getElementById('ytOverlay');
     const letterLayer = document.getElementById('letterLayer');
@@ -611,26 +717,77 @@ Baaki aur kuch matter nahi karta.`;
     const btnNo  = document.getElementById('btnNo');
     const result = document.getElementById('resultMsg');
     const continueOverlay = document.getElementById('continueOverlay');
+    const doubleSheetSection = document.getElementById('doubleSheetSection');
 
     function closePopup(delay){
       setTimeout(() => {
         continueOverlay.classList.remove('visible');
+        // show the double sheets "next page"
+        doubleSheetSection.classList.add('visible');
+        startSlideshow();
+        startSheetTyping();
       }, delay);
     }
 
     btnYes.addEventListener('click', () => {
       result.textContent = "Sirf tumhare liye kuch chhoti‑si cheezein banayi hain,\nthodi si mehnat se… dekhogi?";
       result.classList.add('visible');
-      closePopup(5000); // 5 sec
+      closePopup(2500);
     });
 
     btnNo.addEventListener('click', () => {
       result.textContent = "Kitne bigdail ho yrr tum…\nitni mehnat se banayi hui cheez ko koi aise mana karta hai kya? Ab dekho nahi toh katti. 😤";
       result.classList.add('visible');
-      closePopup(5000); // 5 sec
+      closePopup(2500);
     });
+
+    /* SLIDESHOW LOGIC (left sheet) */
+    let slideIndexAuto = 0;
+    let slideInterval;
+    function startSlideshow(){
+      const slides = document.querySelectorAll('.slide');
+      if (!slides.length) return;
+      slides.forEach(s => s.classList.remove('active'));
+      slides[0].classList.add('active');
+      slideIndexAuto = 0;
+
+      slideInterval = setInterval(() => {
+        slides[slideIndexAuto].classList.remove('active');
+        slideIndexAuto = (slideIndexAuto + 1) % slides.length;
+        slides[slideIndexAuto].classList.add('active');
+      }, 5000);
+    }
+
+    /* RIGHT SHEET TYPEWRITER */
+    const sheetContainer = document.getElementById('sheetText');
+    const sheetChars = sheetFull.split('');
+    let sheetIndex = 0;
+    const sheetCursor = document.createElement('span');
+    sheetCursor.className = 'sheet-cursor';
+    sheetContainer.appendChild(sheetCursor);
+    const sheetPerChar = 110;
+
+    function startSheetTyping(){
+      const interval = setInterval(() => {
+        if (sheetIndex >= sheetChars.length){
+          clearInterval(interval);
+          sheetCursor.remove();
+          return;
+        }
+        const ch = sheetChars[sheetIndex];
+        if (ch === '\n'){
+          sheetContainer.insertBefore(document.createElement('br'), sheetCursor);
+          sheetContainer.insertBefore(document.createElement('br'), sheetCursor);
+        } else {
+          sheetContainer.insertBefore(document.createTextNode(ch), sheetCursor);
+        }
+        sheetIndex++;
+      }, sheetPerChar);
+    }
   </script>
 
   <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
+
+
