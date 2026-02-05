@@ -9,44 +9,47 @@
       height:100%;width:100%;overflow:hidden;
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:
+        url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=1puwxfqj-RIQ7kNvwHGls5j&_nc_oc=Adn_B8wayDTXqrGvTylzjgVacxh_wFrZJRO7iioL2nucJ4-pZDyc2VsMcSVYqQrcDUH4nxgfJtAK2Yts3fndRv3x&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gHB9EfJVUhUukAz7ZBpgUAdLr_JQ7LEvEWLvcsOueVQJA&oe=69A945ED") center/cover no-repeat,
         radial-gradient(circle at center,
-          rgba(0,0,0,0.05) 0%,
-          rgba(0,0,0,0.4) 55%,
-          rgba(0,0,0,0.7) 100%),
-        url("https://img.freepik.com/free-photo/krishna-radha-illustration_23-2150949143.jpg") center/cover no-repeat;
+          rgba(0,0,0,0.18) 0%,
+          rgba(0,0,0,0.48) 55%,
+          rgba(0,0,0,0.8) 100%);
+      background-blend-mode:darken;
+      position:relative;
     }
 
-    /* PETAL FALL */
-    .petal-layer{
-      position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;
+    /* SNOWFALL (SMALL, DIM BALLS) */
+    .snow-layer{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      overflow:hidden;
     }
-    .petal{
-      position:absolute;top:-10%;
-      width:18px;height:24px;
-      background:radial-gradient(circle at 30% 30%, #ffe4f0 0%, #ff82b2 40%, #d93f7a 100%);
-      border-radius:60% 40% 60% 40%;
+    .flake{
+      position:absolute;
+      top:-8%;
+      --size:6px;
+      width:var(--size);
+      height:var(--size);
+      border-radius:50%;
+      background:rgba(255,255,255,0.35);
       opacity:0.9;
-      box-shadow:0 0 8px rgba(255,160,200,0.9),0 0 16px rgba(255,120,180,0.6);
-      animation:petalFall linear infinite;
+      animation:flakeFall linear infinite;
     }
-    .petal:nth-child(1){left:5%;animation-duration:12s;animation-delay:0s;}
-    .petal:nth-child(2){left:12%;animation-duration:16s;animation-delay:2s;}
-    .petal:nth-child(3){left:20%;animation-duration:14s;animation-delay:1s;}
-    .petal:nth-child(4){left:28%;animation-duration:18s;animation-delay:3s;}
-    .petal:nth-child(5){left:36%;animation-duration:15s;animation-delay:0.5s;}
-    .petal:nth-child(6){left:44%;animation-duration:19s;animation-delay:1.5s;}
-    .petal:nth-child(7){left:52%;animation-duration:17s;animation-delay:2.5s;}
-    .petal:nth-child(8){left:60%;animation-duration:20s;animation-delay:1s;}
-    .petal:nth-child(9){left:68%;animation-duration:16s;animation-delay:0.8s;}
-    .petal:nth-child(10){left:76%;animation-duration:18s;animation-delay:2.3s;}
-    .petal:nth-child(11){left:84%;animation-duration:14s;animation-delay:1.7s;}
-    .petal:nth-child(12){left:92%;animation-duration:19s;animation-delay:3.1s;}
+    .flake:nth-child(1){left:8%;  --size:5px; animation-duration:14s; animation-delay:0s;}
+    .flake:nth-child(2){left:22%; --size:6px; animation-duration:18s; animation-delay:1s;}
+    .flake:nth-child(3){left:36%; --size:4px; animation-duration:16s; animation-delay:0.5s;}
+    .flake:nth-child(4){left:50%; --size:7px; animation-duration:19s; animation-delay:1.8s;}
+    .flake:nth-child(5){left:64%; --size:5px; animation-duration:17s; animation-delay:0.9s;}
+    .flake:nth-child(6){left:78%; --size:6px; animation-duration:20s; animation-delay:1.3s;}
+    .flake:nth-child(7){left:92%; --size:4px; animation-duration:18s; animation-delay:0.7s;}
 
-    @keyframes petalFall{
-      0%{transform:translate3d(0,0,0) rotate(0deg);opacity:0;}
-      10%{opacity:1;}
-      50%{transform:translate3d(-20px,50vh,0) rotate(90deg);}
-      100%{transform:translate3d(20px,105vh,0) rotate(180deg);opacity:0;}
+    @keyframes flakeFall{
+      0%{transform:translate3d(0,0,0);opacity:0;}
+      10%{opacity:0.8;}
+      50%{transform:translate3d(-8px,50vh,0);}
+      100%{transform:translate3d(8px,105vh,0);opacity:0;}
     }
 
     /* YOUTUBE OVERLAY */
@@ -74,7 +77,7 @@
       width:100%;height:100%;border:0;
     }
 
-    /* LETTER LAYER */
+    /* LETTER LAYER (MAIN LONG LETTER) */
     .letter-layer{
       position:fixed;inset:0;
       display:flex;align-items:center;justify-content:center;
@@ -87,12 +90,10 @@
       opacity:1;
       pointer-events:auto;
     }
-
     .letter-backdrop{
       position:fixed;inset:0;
       background:transparent;
     }
-
     .letter-box{
       position:relative;
       min-width:260px;
@@ -119,7 +120,6 @@
         box-shadow:0 0 45px rgba(255,245,220,0.45);
       }
     }
-
     .letter-inner{
       position:relative;
       background:rgba(9, 6, 19, 0.72);
@@ -146,7 +146,6 @@
       80%{transform:scaleY(0.95);}
       100%{transform:scaleY(1);opacity:1;}
     }
-
     .scroll-bar{
       position:absolute;left:0;right:0;height:8px;
       background:linear-gradient(90deg,#f5e0b8,#fdf3cf,#f5e0b8);
@@ -154,7 +153,6 @@
     }
     .scroll-bar.top{top:8px;border-radius:999px;}
     .scroll-bar.bottom{bottom:8px;border-radius:999px;}
-
     .letter-title{
       font-size:17px;
       font-weight:500;
@@ -166,7 +164,6 @@
         0 0 6px rgba(255,233,192,0.8),
         0 2px 4px rgba(0,0,0,0.6);
     }
-
     .letter-body-wrap{
       max-height:150px;
       overflow:hidden;
@@ -180,7 +177,6 @@
       position:relative;
       text-shadow:0 1px 3px rgba(0,0,0,0.7);
     }
-
     .cursor{
       display:inline-block;
       width:2px;
@@ -193,7 +189,6 @@
       0%,50%{opacity:1;}
       51%,100%{opacity:0;}
     }
-
     .shine{
       position:absolute;top:0;left:-40%;
       width:40%;height:100%;
@@ -215,10 +210,6 @@
       100%{left:110%;opacity:0;}
     }
 
-    @keyframes fadeOutAll{
-      to{opacity:0;visibility:hidden;}
-    }
-
     /* GANESHA SECTION */
     .ganesha-section{
       position:fixed;
@@ -238,7 +229,6 @@
       opacity:1;
       pointer-events:auto;
     }
-
     .ganesha-inner{
       max-width:420px;
       width:100%;
@@ -252,7 +242,6 @@
       -webkit-backdrop-filter:blur(10px);
       padding:14px 16px 16px;
     }
-
     .ganesha-gif-wrap{
       display:flex;
       justify-content:center;
@@ -265,7 +254,6 @@
       border-radius:18px;
       box-shadow:0 0 18px rgba(255,223,186,0.7);
     }
-
     .ganesha-text{
       font-size:12px;
       line-height:1.7;
@@ -273,7 +261,6 @@
       text-shadow:0 1px 3px rgba(0,0,0,0.7);
       min-height:90px;
     }
-
     .g-cursor{
       display:inline-block;
       width:2px;
@@ -305,7 +292,6 @@
       opacity:1;
       pointer-events:auto;
     }
-
     .continue-box{
       max-width:360px;
       width:100%;
@@ -317,7 +303,6 @@
       text-align:center;
       color:#ffeeda;
     }
-
     .continue-title{
       font-size:16px;
       margin-bottom:8px;
@@ -328,7 +313,6 @@
       opacity:0.85;
       margin-bottom:14px;
     }
-
     .btn-row{
       display:flex;
       gap:10px;
@@ -364,7 +348,6 @@
       transform:translateY(0);
       box-shadow:none;
     }
-
     .result-message{
       margin-top:14px;
       font-size:12px;
@@ -379,7 +362,7 @@
       transform:translateY(0);
     }
 
-    /* STEP 5: DOUBLE SHEET (FINAL) */
+    /* DOUBLE SHEET SECTION */
     .double-sheet-section{
       position:fixed;
       inset:0;
@@ -395,7 +378,6 @@
       opacity:1;
       pointer-events:auto;
     }
-
     .double-sheet-wrapper{
       display:flex;
       gap:14px;
@@ -404,7 +386,6 @@
       padding:0 16px;
       position:relative;
     }
-
     .sheet{
       flex:1;
       border-radius:22px;
@@ -419,7 +400,6 @@
       position:relative;
       overflow:hidden;
     }
-
     .sheet-left{flex:1;}
     .sheet-right{flex:1;}
 
@@ -428,11 +408,10 @@
       font-weight:600;
       letter-spacing:0.6px;
       text-align:center;
-      color:#ffe9c0;
+      color:#ffffff;
       margin-bottom:6px;
       text-shadow:0 1px 4px rgba(0,0,0,0.9);
     }
-
     .sheet-title{
       font-size:13px;
       font-weight:600;
@@ -443,11 +422,10 @@
       text-shadow:0 1px 4px rgba(0,0,0,0.9);
     }
 
-    /* LEFT FULL-IMAGE SHEET */
     .sheet-left-inner{
       position:relative;
       width:100%;
-      height:200px;
+      height:220px;
       border-radius:18px;
       overflow:hidden;
     }
@@ -464,7 +442,6 @@
       opacity:1;
     }
 
-    /* RIGHT SHEET TEXT AREA */
     .sheet-text-wrap{
       max-height:210px;
       overflow:auto;
@@ -476,7 +453,6 @@
       line-height:1.7;
       white-space:pre-wrap;
       color:#fdf7e9;
-      text-shadow:0 1px 3px rgba(0,0,0,0.7);
     }
     .sheet-cursor{
       display:inline-block;
@@ -487,7 +463,6 @@
       vertical-align:baseline;
     }
 
-    /* EMOJI POINTERS OUTSIDE SHEETS */
     .finger-left,
     .finger-right{
       position:absolute;
@@ -495,25 +470,97 @@
       text-shadow:0 2px 4px rgba(0,0,0,0.9);
       pointer-events:none;
       opacity:0.95;
+      color:#ffffff;
     }
     .finger-left{
       bottom:100%;
       left:8%;
-      margin-bottom:8px;
+      margin-bottom:2px;
     }
     .finger-right{
       bottom:100%;
       right:8%;
-      margin-bottom:8px;
+      margin-bottom:2px;
+    }
+
+    /* FINAL GIF CARD */
+    .final-card{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      z-index:6;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 1s ease;
+      background:transparent;
+    }
+    .final-card.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .final-card-inner{
+      max-width:360px;
+      width:100%;
+      background:rgba(9,6,19,0.65);
+      border-radius:22px;
+      border:1px solid rgba(255,230,190,0.9);
+      box-shadow:
+        0 0 30px rgba(0,0,0,0.85),
+        0 0 26px rgba(255,215,170,0.55);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      padding:16px 16px 14px;
+      text-align:center;
+      color:#ffeeda;
+    }
+    .final-gif-wrap{
+      display:flex;
+      justify-content:center;
+      margin-bottom:12px;
+    }
+    .final-gif-wrap img{
+      max-width:200px;
+      width:80%;
+      border-radius:18px;
+      box-shadow:0 0 16px rgba(255,223,186,0.8);
+    }
+    .final-text{
+      font-size:13px;
+      line-height:1.7;
+      white-space:pre-wrap;
+      text-shadow:0 1px 3px rgba(0,0,0,0.7);
+    }
+
+    /* FOOTER INSTA LINK */
+    .footer-insta{
+      position:fixed;
+      left:0;right:0;
+      bottom:6px;
+      text-align:center;
+      font-size:11px;
+      color:#ffeeda;
+      opacity:0.9;
+      z-index:7;
+      text-shadow:0 1px 3px rgba(0,0,0,0.8);
+    }
+    .footer-insta a{
+      color:#ffd9a3;
+      text-decoration:none;
+      font-weight:500;
+    }
+    .footer-insta a:hover{
+      text-decoration:underline;
     }
   </style>
 </head>
 <body>
-  <!-- PETALS -->
-  <div class="petal-layer">
-    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
-    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
-    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  <!-- SNOW -->
+  <div class="snow-layer">
+    <div class="flake"></div><div class="flake"></div><div class="flake"></div><div class="flake"></div>
+    <div class="flake"></div><div class="flake"></div><div class="flake"></div>
   </div>
 
   <!-- STEP 1: YT -->
@@ -530,7 +577,7 @@
     </div>
   </div>
 
-  <!-- STEP 2: LETTER -->
+  <!-- STEP 2: LETTER (main) -->
   <div class="letter-layer" id="letterLayer">
     <div class="letter-backdrop"></div>
     <div class="letter-box">
@@ -569,23 +616,19 @@
     </div>
   </div>
 
-  <!-- STEP 5: DOUBLE SHEET (AFTER YES/NO) -->
+  <!-- STEP 5: DOUBLE SHEET -->
   <div class="double-sheet-section" id="doubleSheetSection">
     <div class="double-sheet-wrapper">
       <div class="finger-left">👈</div>
       <div class="finger-right">👉 ?</div>
 
-      <!-- LEFT: PHOTOS -->
       <div class="sheet sheet-left">
         <div class="image-title">
           ise jaante ho? ye sab isi ke liye banaya hai ... 😁
         </div>
-        <div class="sheet-left-inner" id="leftSlideshow">
-          <!-- slides from JS -->
-        </div>
+        <div class="sheet-left-inner" id="leftSlideshow"></div>
       </div>
 
-      <!-- RIGHT: MORE WORDS -->
       <div class="sheet sheet-right">
         <div class="sheet-title">and a few more words..</div>
         <div class="sheet-text-wrap">
@@ -595,7 +638,26 @@
     </div>
   </div>
 
+  <!-- FINAL GIF CARD (after last message) -->
+  <div class="final-card" id="finalCard">
+    <div class="final-card-inner">
+      <div class="final-gif-wrap">
+        <img src="https://media.tenor.com/qqRoBpnjOrIAAAAi/tkthao219-bubududu.gif" alt="bubududu hug">
+      </div>
+      <div class="final-text">
+        kaisa laga ??  
+        emotional toh nhi kara diye na??? 😅
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER INSTA -->
+  <div class="footer-insta">
+    Insta: <a href="https://www.instagram.com/_i.msaurav_/" target="_blank" rel="noopener noreferrer">@_i.msaurav_</a>
+  </div>
+
   <script>
+    /* MAIN LONG LETTER */
     const fullMessage = `The dearest angel of my life,
 Kabhi kabhi zindagi me kuch log aise mil jaate hain jo bina awaaz kiye, bina zyada kuch maange, dil ka ek bohot hi khaas hissa ban jaate hain.
 Tum unhi logon me se ek ho. 💫
@@ -624,215 +686,143 @@ Aur agar kabhi future me kisi din, kisi chhoti si baat se tumhe meri yaad aa bhi
 Sincerely,
 Saurav`;
 
-    const ganeshaFull = `Bahot maanti ho na tum inko…
-Tumhari wajah se hi main inse pray karta tha ki sab theek rahe, tum khush raho, apni zindagi aazaadi se jiyo.
-Kabhi kabhi lagta hai shayad isi wajah se unhone mujhe thoda door kar diya… 😣
-Phir bhi ek cheez se genuinely khush hoon – ki tum khush ho.
-Baaki aur kuch matter nahi karta.`;
+    /* RIGHT SHEET – your long emotional message */
+    const sheetFull = `Jaante ho ik waqt tha jab lagta tha ki shayad zindagi thoda sa ruk jaaye, thoda sa bend ho jaaye sirf itna sa waqt dene ke liye ki main tumhare saath thoda aur reh sakun… bas thoda aur.
+Par phir reality ne aa kar thapp se yaad dilaya ki sab kuch hamare control me nahi hota. Tumhare parents ke decisions, tumhara unke liye respect, aur tumhara unke kehne par chalna – ye sab dekhkar frustration se zyada ek ajeeb si bechainee feel hoti hai… kyunki mujhe pata hai tum jaan boojh kar apne future ko gamble pe nahi rakh rahi, tum bus wahi kar rahi ho jo tumhe sahi lagta hai apne logon ke liye.
+Kabhi kabhi sochta hoon, tum unki beti ho, unki responsibility ho – lekin kya pata unhe kabhi realise ho ki tum sirf unki zimmedaari nahi, tum khud bhi ek alag insaan ho, apne khud ke sapno ke saath.
+Tumhara “haan” bol dena unke faisle pe, shayad duniya ko sirf ek ‘obedient daughter’ lage… par mere liye wo ek aisi line hai jahan se tumhara purana, carefree version thoda thoda dissolve hone lagta hai, aur mujhe darr lagta hai ki kahi ek din tum khud ko hi na bhool jao.
+Maine jo plan socha tha na – 10th ke baad college, 3–4 saal me job, phir dheere dheere life ko track pe lana – wo sab sunne me bohot simple lagta hai, par uske peeche sirf career ka thought nahi tha.
+Uske peeche ek chhota sa stupid sa sapna tha ki shayad tab tak tumhare paas bhi 3–4 saal ka gap ho, jisme main apni value prove kar sakun… itna ki tumhari family bhi ek baar ruk kar soche, “haan, shayad ye ladka buri choice nahi hai.”
+Par phir jab tumhari aankhon me mere liye wo irritation, wo gussa, wo thakawat dekhta hoon, toh lagta hai main hi shayad woh insaan hoon jisse tum apne life se door rakhna chahti ho… aur tab saare plans, saare dreams apne aap hi halki si hansi ban jaate hain – “kitna filmy soch leta hun na main.”
+Sach kahun toh, main jaanta hoon ki mujhe itna personally nahi le jaana chahiye tha.
+Hadd hoti hai na – aur main har baar tumhare case me wo boundary cross kar deta hoon.
+Tum bas ek normal, peaceful life chahte ho, jisme unnecessary drama na ho, aur main baar baar apni emotions leke aa jata hoon tumhare saamne… phir khud hi guilty feel karta hoon, khud hi sorry bolta hoon, phir khud hi promise tod deta hoon.
+Iss sab ke liye, sincerely, sorry… agar kabhi feel hua ho ki main tumhe force kar raha hoon kisi bhi emotion ke andar, toh please uss galti ko bhi dil pe mat lena… ye sab sirf issliye aata hai kyunki tum mere liye normal insaan nahi ho.
+Tumhe yaad hai na, “khush ho?” wale simple se question pe tumhara “haan” likhna mere liye kisi result ke ‘pass’ likhne se zyada important hota tha.
+Us “haan” ke baad main literally khaali screen ko dekh kar smile karta rehta tha, aise jaise kisi ne world war cancel kar di ho aur bola ho – “aaj sab theek hai.”
+Ho sakta hai ye sab tumhe over attached lage, immature lage, ya irritating bhi lage… par mere liye woh 2–3 words daily assurance the ki tum theek ho, safe ho, aur mere world ka sabse important part at least emotionally toota hua nahi hai.
+Ab bhi shayad tum soch rahi hogi ki main un logon ko kaise itni easily maaf kar sakta hoon jinki wajah se aaj hum itna awkward, itna distant, itna alag lagte hain.
+Par tumhe pata hai, maine realise kiya – agar main har us cheez ko pakad ke baitha rahu jo hurt karti hai, toh main khud kabhi heal nahi ho paunga.
+Mere paas jo blue bag tha na… usse pehle wala bag, jisme maine apne saare use hue pens aur refills sambhal ke rakhe the – 250+ pens, 30–40 refills – kisi aur ko ye sab useless junk lagega, par mere liye wo har ek pen ek phase, ek exam, ek random din ki yaad hai.
+Main chhoti chhoti cheezon ko itna seriously le leta hoon ki unhe chhodna literal dard jaisa lagta hai… toh soch sakti ho na, tum jaise insaan ko chhodne ka thought kaisa lagta hoga.
+Isiliye maine maaf karna seekhne ki koshish ki – un logon ko bhi, situations ko bhi, khud ko bhi.
+Na isliye ki unki galti kam ho gayi, na isliye ki main sab bhool gaya… bas isliye ki agar main maaf nahi karta, toh main har roz wahi purana dard dobara jee raha hota.
+Aur sach bolo toh, main tumhe bhi kisi guilt me nahi dekhna chahta.
+Tumne jo bhi decisions liye, jo bhi log chun rahi ho, jo bhi raasta choose kar rahi ho – wo tumhari life hai; aur agar sach me tum usme khush ho paaogi, toh wahi mere liye bhi best outcome hai, chahe main us story ka sirf ek side character hi kyun na rahun.
+Ho sakta hai tum harek line me bas “over emotional” dekh rahi ho… lekin mere liye ye sab sirf itna sa matlab rakhta hai ki agar kabhi kabhi, kisi raat, kisi random train, bus, ya room me baithe hue tumhe meri yaad aa bhi jaye, toh tumhe ye feel na ho ki main tumpe kabhi gussa tha.
+Bas itna yaad rahe – ek ladka tha jo shayad bohot imperfect tha, bohot ziddi tha, bohot irritating tha… par jisne dil se tumhare liye kabhi bura nahi socha.
+Baaki, tum jahan bhi raho, jis bhi naam ke saath raho, dua hamesha isi cheez ki rahegi ki tum khud ke decisions se satisfied raho, khud ko kabhi kam mat samjho, aur kabhi bhi kisi ko apni smile ke upar rights na de do.`;
 
-    const sheetFull = `Ab yaha se jo bhi aage likha hai,
-wo bas ek chhota sa extra chapter hai tumhare naam se…
-koi demand nahi, koi pressure nahi,
-sirf thoda sa aur pyaar, thodi si aur honesty,
-aur thoda sa aur gratitude – bas itna sa.`;
+    /* GANESHA TEXT */
+    const gMsg = `Ganpati Bappa hamesha se mere liye ek aise dost jaise rahe hain
+jo bina kuch kahe bas dil samajh lete hain. 🕊️
+Isliye socha, tum tak kuch bhi bhejne se pehle,
+unke saamne ek chhoti si dua rakh doon — 
+ki tum jahan bhi raho, jaise bhi raho,
+wahan tumhe hamesha sukoon, clarity
+aur genuinely khush rehne wale reasons milte rahein. 💛`;
+
+    const messageEl = document.getElementById('messageText');
+    const sheetEl   = document.getElementById('sheetText');
+    const gEl       = document.getElementById('gText');
+
+    const letterLayer        = document.getElementById('letterLayer');
+    const ganeshaSection     = document.getElementById('ganeshaSection');
+    const continueOverlay    = document.getElementById('continueOverlay');
+    const doubleSheetSection = document.getElementById('doubleSheetSection');
+    const finalCard          = document.getElementById('finalCard');
 
     const ytOverlay = document.getElementById('ytOverlay');
-    const letterLayer = document.getElementById('letterLayer');
-    const container = document.getElementById('messageText');
-    const ganeshaSection = document.getElementById('ganeshaSection');
-    const gContainer = document.getElementById('gText');
 
-    const chars = fullMessage.split('');
-    let index = 0;
-    let typingStarted = false;
-
-    const cursor = document.createElement('span');
-    cursor.className = 'cursor';
-    container.appendChild(cursor);
-
-    const perChar = 120;
-
-    function startTypingOnce() {
-      if (typingStarted) return;
-      typingStarted = true;
-
-      letterLayer.classList.add('visible');
-
-      setTimeout(() => {
-        const interval = setInterval(() => {
-          if (index >= chars.length) {
-            clearInterval(interval);
-            cursor.remove();
-
-            setTimeout(() => {
-              letterLayer.style.animation = 'fadeOutAll 1s ease-out forwards';
-            }, 5000);
-
-            setTimeout(() => {
-              ganeshaSection.classList.add('visible');
-              startGaneshaTyping();
-            }, 6000);
-
-            return;
-          }
-
-          const ch = chars[index];
-
-          if (ch === '\n') {
-            container.insertBefore(document.createElement('br'), cursor);
-            container.insertBefore(document.createElement('br'), cursor);
-          } else {
-            container.insertBefore(document.createTextNode(ch), cursor);
-          }
-
-          container.parentElement.scrollTop = container.parentElement.scrollHeight;
-          index++;
-        }, perChar);
-      }, 1600);
-    }
-
-    /* GANESHA TYPEWRITER */
-    const gChars = ganeshaFull.split('');
-    let gIndex = 0;
-    const gCursor = document.createElement('span');
-    gCursor.className = 'g-cursor';
-    gContainer.appendChild(gCursor);
-    const gPerChar = 90;
-
-    function startGaneshaTyping(){
-      const interval = setInterval(() => {
-        if (gIndex >= gChars.length){
-          clearInterval(interval);
-          gCursor.remove();
-
-          setTimeout(() => {
-            document.getElementById('continueOverlay').classList.add('visible');
-          }, 1500);
-          return;
-        }
-
-        const ch = gChars[gIndex];
-
-        if (ch === '\n'){
-          gContainer.insertBefore(document.createElement('br'), gCursor);
-          gContainer.insertBefore(document.createElement('br'), gCursor);
-        } else {
-          gContainer.insertBefore(document.createTextNode(ch), gCursor);
-        }
-
-        gIndex++;
-      }, gPerChar);
-    }
-
-    let player;
-
-    function onYouTubeIframeAPIReady(){
-      player = new YT.Player('ytPlayer', {
-        events:{ onStateChange: onPlayerStateChange }
-      });
-    }
-
-    function onPlayerStateChange(event){
-      if (event.data === YT.PlayerState.PLAYING){
-        ytOverlay.classList.add('hidden');
-        setTimeout(() => {
-          ytOverlay.style.display = 'none';
-          startTypingOnce();
-        }, 700);
-      }
-    }
-
-    /* YES/NO -> SHOW DOUBLE SHEETS */
     const btnYes = document.getElementById('btnYes');
     const btnNo  = document.getElementById('btnNo');
-    const result = document.getElementById('resultMsg');
-    const continueOverlay = document.getElementById('continueOverlay');
-    const doubleSheetSection = document.getElementById('doubleSheetSection');
+    const resultMsg = document.getElementById('resultMsg');
 
-    function closePopup(delay){
-      setTimeout(() => {
-        continueOverlay.classList.remove('visible');
-        doubleSheetSection.classList.add('visible');
-        startSlideshow();
-        startSheetTyping();
-      }, delay);
-    }
-
-    btnYes.addEventListener('click', () => {
-      result.textContent = "Sirf tumhare liye kuch chhoti‑si cheezein banayi hain,\nthodi si mehnat se… dekhogi?";
-      result.classList.add('visible');
-      closePopup(2500);
-    });
-
-    btnNo.addEventListener('click', () => {
-      result.textContent = "Kitne bigdail ho yrr tum…\nitni mehnat se banayi hui cheez ko koi aise mana karta hai kya? Ab dekho nahi toh katti. 😤";
-      result.classList.add('visible');
-      closePopup(2500);
-    });
-
-    /* LEFT SLIDESHOW (full cover images) */
-    const photoUrls = [
-      "https://scontent.fpat2-3.fna.fbcdn.net/v/t1.15752-9/622545384_1211933343884874_9047688104074483996_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=GrCTdREhRxUQ7kNvwEtdalH&_nc_oc=AdnPD5zJemDC51PcGTbkS1qfcD9T31jXCUi5DKyy_TbxPdqPtHk3Eqv5eXTCqbMTOqYeneF4qUF0CCq4NqaN6quI&_nc_zt=23&_nc_ht=scontent.fpat2-3.fna&oh=03_Q7cD4gG95vQ3u-EQLMf6I1QLrcx5vOW4LfMPpYXPaLSSA8LvuQ&oe=69A92214",
-      "https://scontent.fpat2-1.fna.fbcdn.net/v/t1.15752-9/622866816_2420046891748696_5391229335897486637_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_ohc=7p499JgVXpAQ7kNvwFglES3&_nc_oc=AdlDoQRFajB_Co864zt89DHb91-FjnQxG3Cs6Zky31_RCaQkfqered1sdUT79gTgcrzyjuktKwqhtXyw7nTcvh76&_nc_zt=23&_nc_ht=scontent.fpat2-1.fna&oh=03_Q7cD4gFkAztIaqk5S13XcXbeT_Vgk1L_oDiJXY3osIKKAHLjaQ&oe=69A92EC1",
-      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/621153261_939180279280809_7722870075001620847_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=PnOL8d6ek-AQ7kNvwHNxOZL&_nc_oc=Adk4IT5vw6maviTQ28abrfXuhUuMLVuGpldJfuKSFD3mE3c4HGZN7bqDnosiiyZc9tck7mdGTNC9Tc0xaYOLBTAE&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gFsv3yp22aDKob32W2dSMBeixzkvpplrpwcp4rdtyHTUg&oe=69A927D6",
-      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/621534461_1390019806090490_5411646053077396350_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_ohc=kmFpHXAN2SEQ7kNvwH7fT8s&_nc_oc=AdlRbY0g7OEFw_3oHnUSmr0yrZq9xL9-qyO2w1CGGm_x1DnANOROTbo51lohwKiadKoh-AYfU5cYneHcvdbJ-e6Z&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gGHt6cebuwBRRxZxDh_ig9h_j1_VIUd8zzmMbdC5o4XEQ&oe=69A92388"
-      // add more if you want
+    /* LEFT SLIDESHOW IMAGES */
+    const slideUrls = [
+      "https://i.ibb.co/89ZkZ9Q/Whats-App-Image-2025-02-02-at-22-17-43-2a44a4cd.jpg",
+      "https://i.ibb.co/89ZkZ9Q/Whats-App-Image-2025-02-02-at-22-17-43-2a44a4cd.jpg",
+      "https://i.ibb.co/89ZkZ9Q/Whats-App-Image-2025-02-02-at-22-17-43-2a44a4cd.jpg"
     ];
+    const leftContainer = document.getElementById('leftSlideshow');
 
-    const slideshowContainer = document.getElementById('leftSlideshow');
-    photoUrls.forEach((url, index) => {
-      const slide = document.createElement('div');
-      slide.className = 'slide-full';
-      slide.style.backgroundImage = `url('${url}')`;
-      if (index === 0) slide.classList.add('active');
-      slideshowContainer.appendChild(slide);
-    });
-
-    let slideIndexAuto = 0;
-    function startSlideshow(){
-      const slides = document.querySelectorAll('.slide-full');
-      if (!slides.length) return;
-      slideIndexAuto = 0;
-      slides.forEach(s => s.classList.remove('active'));
-      slides[0].classList.add('active');
-      setInterval(() => {
-        slides[slideIndexAuto].classList.remove('active');
-        slideIndexAuto = (slideIndexAuto + 1) % slides.length;
-        slides[slideIndexAuto].classList.add('active');
-      }, 8000);
+    function setupSlides(){
+      slideUrls.forEach((url,idx)=>{
+        const d=document.createElement('div');
+        d.className='slide-full'+(idx===0?' active':'');
+        d.style.backgroundImage=`url("${url}")`;
+        leftContainer.appendChild(d);
+      });
+      const slides=document.querySelectorAll('.slide-full');
+      let current=0;
+      setInterval(()=>{
+        slides[current].classList.remove('active');
+        current=(current+1)%slides.length;
+        slides[current].classList.add('active');
+      },15000);
     }
 
-    /* RIGHT SHEET TYPEWRITER + AUTO SCROLL */
-    const sheetContainer = document.getElementById('sheetText');
-    const sheetChars = sheetFull.split('');
-    let sheetIndex = 0;
-    const sheetCursor = document.createElement('span');
-    sheetCursor.className = 'sheet-cursor';
-    sheetContainer.appendChild(sheetCursor);
-    const sheetPerChar = 110;
-
-    function startSheetTyping(){
-      const wrap = sheetContainer.parentElement;
-      const interval = setInterval(() => {
-        if (sheetIndex >= sheetChars.length){
+    function typeText(el, text, speed=25, done){
+      let i=0;
+      el.textContent='';
+      const cursor=document.createElement('span');
+      cursor.className= el.id==='gText' ? 'g-cursor' : (el.id==='sheetText' ? 'sheet-cursor' : 'cursor');
+      el.appendChild(cursor);
+      const interval=setInterval(()=>{
+        if(i<text.length){
+          cursor.before(text.charAt(i));
+          i++;
+        }else{
           clearInterval(interval);
-          sheetCursor.remove();
-          return;
+          if(done) done();
         }
-        const ch = sheetChars[sheetIndex];
-        if (ch === '\n'){
-          sheetContainer.insertBefore(document.createElement('br'), sheetCursor);
-          sheetContainer.insertBefore(document.createElement('br'), sheetCursor);
-        } else {
-          sheetContainer.insertBefore(document.createTextNode(ch), sheetCursor);
-        }
-        wrap.scrollTop = wrap.scrollHeight;
-        sheetIndex++;
-      }, sheetPerChar);
+      },speed);
     }
-  </script>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
+    // FLOW same as pehle:
+    // 1) thoda delay -> YT hide, letter show
+    // 2) letter typing -> Bappa
+    // 3) Bappa typing -> Yes/No
+    // 4) Yes -> double sheet + right message typing
+    // 5) Right message ke 10s baad -> final GIF card
+
+    setTimeout(()=>{
+      ytOverlay.classList.add('hidden');
+      letterLayer.classList.add('visible');
+      typeText(messageEl, fullMessage, 18, ()=>{
+        setTimeout(()=>{
+          letterLayer.classList.remove('visible');
+          ganeshaSection.classList.add('visible');
+          typeText(gEl, gMsg, 22, ()=>{
+            setTimeout(()=>{
+              ganeshaSection.classList.remove('visible');
+              continueOverlay.classList.add('visible');
+            },800);
+          });
+        },800);
+      });
+    }, 3000);
+
+    btnYes.onclick = ()=>{
+      resultMsg.textContent='';
+      continueOverlay.classList.remove('visible');
+      doubleSheetSection.classList.add('visible');
+      setupSlides();
+      typeText(sheetEl, sheetFull, 15, ()=>{
+        // last message complete -> 10s -> show GIF
+        setTimeout(()=>{
+          finalCard.classList.add('visible');
+        },10000);
+      });
+    };
+
+    btnNo.onclick = ()=>{
+      resultMsg.textContent = "thik hai, yahin tak sahi... par ek chhota sa secret: ye sab sirf tumhare liye hi bana tha. 💛";
+      resultMsg.classList.add('visible');
+      setTimeout(()=>{
+        finalCard.classList.add('visible');
+      },10000);
+    };
+  </script>
 </body>
 </html>
-
