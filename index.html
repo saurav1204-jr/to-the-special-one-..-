@@ -6,51 +6,53 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     html,body{
-      height:100%;width:100%;overflow:hidden;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:
-        url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=1puwxfqj-RIQ7kNvwHGls5j&_nc_oc=Adn_B8wayDTXqrGvTylzjgVacxh_wFrZJRO7iioL2nucJ4-pZDyc2VsMcSVYqQrcDUH4nxgfJtAK2Yts3fndRv3x&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gHB9EfJVUhUukAz7ZBpgUAdLr_JQ7LEvEWLvcsOueVQJA&oe=69A945ED") center/cover no-repeat,
-        radial-gradient(circle at center,
-          rgba(0,0,0,0.18) 0%,
-          rgba(0,0,0,0.48) 55%,
-          rgba(0,0,0,0.8) 100%);
-      background-blend-mode:darken;
-      position:relative;
-    }
+      html,body{
+  height:100%;width:100%;overflow:hidden;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=1puwxfqj-RIQ7kNvwHGls5j&_nc_oc=Adn_B8wayDTXqrGvTylzjgVacxh_wFrZJRO7iioL2nucJ4-pZDyc2VsMcSVYqQrcDUH4nxgfJtAK2Yts3fndRv3x&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gHB9EfJVUhUukAz7ZBpgUAdLr_JQ7LEvEWLvcsOueVQJA&oe=69A945ED") center/cover no-repeat,
+    radial-gradient(circle at center,
+      rgba(0,0,0,0.18) 0%,
+      rgba(0,0,0,0.48) 55%,
+      rgba(0,0,0,0.8) 100%);
+  background-blend-mode:darken;
+  position:relative;
+}
+
 
     /* SNOWFALL (SMALL, DIM BALLS) */
     .snow-layer{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:0;
-      overflow:hidden;
-    }
-    .flake{
-      position:absolute;
-      top:-8%;
-      --size:6px;
-      width:var(--size);
-      height:var(--size);
-      border-radius:50%;
-      background:rgba(255,255,255,0.35);
-      opacity:0.9;
-      animation:flakeFall linear infinite;
-    }
-    .flake:nth-child(1){left:8%;  --size:5px; animation-duration:14s; animation-delay:0s;}
-    .flake:nth-child(2){left:22%; --size:6px; animation-duration:18s; animation-delay:1s;}
-    .flake:nth-child(3){left:36%; --size:4px; animation-duration:16s; animation-delay:0.5s;}
-    .flake:nth-child(4){left:50%; --size:7px; animation-duration:19s; animation-delay:1.8s;}
-    .flake:nth-child(5){left:64%; --size:5px; animation-duration:17s; animation-delay:0.9s;}
-    .flake:nth-child(6){left:78%; --size:6px; animation-duration:20s; animation-delay:1.3s;}
-    .flake:nth-child(7){left:92%; --size:4px; animation-duration:18s; animation-delay:0.7s;}
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+.flake{
+  position:absolute;
+  top:-8%;
+  --size:6px;
+  width:var(--size);
+  height:var(--size);
+  border-radius:50%;
+  background:rgba(255,255,255,0.35);
+  opacity:0.9;
+  animation:flakeFall linear infinite;
+}
+.flake:nth-child(1){left:8%;  --size:5px; animation-duration:14s; animation-delay:0s;}
+.flake:nth-child(2){left:22%; --size:6px; animation-duration:18s; animation-delay:1s;}
+.flake:nth-child(3){left:36%; --size:4px; animation-duration:16s; animation-delay:0.5s;}
+.flake:nth-child(4){left:50%; --size:7px; animation-duration:19s; animation-delay:1.8s;}
+.flake:nth-child(5){left:64%; --size:5px; animation-duration:17s; animation-delay:0.9s;}
+.flake:nth-child(6){left:78%; --size:6px; animation-duration:20s; animation-delay:1.3s;}
+.flake:nth-child(7){left:92%; --size:4px; animation-duration:18s; animation-delay:0.7s;}
 
-    @keyframes flakeFall{
-      0%{transform:translate3d(0,0,0);opacity:0;}
-      10%{opacity:0.8;}
-      50%{transform:translate3d(-8px,50vh,0);}
-      100%{transform:translate3d(8px,105vh,0);opacity:0;}
-    }
+@keyframes flakeFall{
+  0%{transform:translate3d(0,0,0);opacity:0;}
+  10%{opacity:0.8;}
+  50%{transform:translate3d(-8px,50vh,0);}
+  100%{transform:translate3d(8px,105vh,0);opacity:0;}
+}
 
     /* YOUTUBE OVERLAY */
     .yt-overlay{
@@ -558,10 +560,10 @@
 </head>
 <body>
   <!-- SNOW -->
-  <div class="snow-layer">
-    <div class="flake"></div><div class="flake"></div><div class="flake"></div><div class="flake"></div>
-    <div class="flake"></div><div class="flake"></div><div class="flake"></div>
-  </div>
+ <div class="snow-layer">
+  <div class="flake"></div><div class="flake"></div><div class="flake"></div><div class="flake"></div>
+  <div class="flake"></div><div class="flake"></div><div class="flake"></div>
+</div>
 
   <!-- STEP 1: YT -->
   <div class="yt-overlay" id="ytOverlay">
@@ -826,3 +828,4 @@ aur genuinely khush rehne wale reasons milte rahein. 💛`;
   </script>
 </body>
 </html>
+
