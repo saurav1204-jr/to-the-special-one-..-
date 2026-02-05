@@ -6,53 +6,69 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     html,body{
-      html,body{
-  height:100%;width:100%;overflow:hidden;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:
-    url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=1puwxfqj-RIQ7kNvwHGls5j&_nc_oc=Adn_B8wayDTXqrGvTylzjgVacxh_wFrZJRO7iioL2nucJ4-pZDyc2VsMcSVYqQrcDUH4nxgfJtAK2Yts3fndRv3x&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gHB9EfJVUhUukAz7ZBpgUAdLr_JQ7LEvEWLvcsOueVQJA&oe=69A945ED") center/cover no-repeat,
-    radial-gradient(circle at center,
-      rgba(0,0,0,0.18) 0%,
-      rgba(0,0,0,0.48) 55%,
-      rgba(0,0,0,0.8) 100%);
-  background-blend-mode:darken;
-  position:relative;
-}
+      height:100%;width:100%;overflow:hidden;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at center,
+          rgba(0,0,0,0.05) 0%,
+          rgba(0,0,0,0.4) 55%,
+          rgba(0,0,0,0.7) 100%),
+        url("https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/622471357_1975604193390615_8500902659735836688_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=epR98qxa3hYQ7kNvwF2uUj9&_nc_oc=AdlMhYsys0gEoFm8rFrZ1s890hLk4Q_VvTR9LSjSL-q_kMp9wpsecApWijzrd0fM1Zx33k4AvTBHX9yerV1dhK75&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4QGuWaFVljAaY0NSWheEu-u5oOUNkMmcHHb_X4PvAHiKgQ&oe=69A2762D");
+      background-size:cover; /* container cover */ /* [web:283][web:284] */
+      background-position:center;
+      background-repeat:no-repeat;
+    }
 
-
-    /* SNOWFALL (SMALL, DIM BALLS) */
+    /* LIGHT, PERMANENT SNOWFALL IN BACKGROUND */
     .snow-layer{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
-  overflow:hidden;
-}
-.flake{
-  position:absolute;
-  top:-8%;
-  --size:6px;
-  width:var(--size);
-  height:var(--size);
-  border-radius:50%;
-  background:rgba(255,255,255,0.35);
-  opacity:0.9;
-  animation:flakeFall linear infinite;
-}
-.flake:nth-child(1){left:8%;  --size:5px; animation-duration:14s; animation-delay:0s;}
-.flake:nth-child(2){left:22%; --size:6px; animation-duration:18s; animation-delay:1s;}
-.flake:nth-child(3){left:36%; --size:4px; animation-duration:16s; animation-delay:0.5s;}
-.flake:nth-child(4){left:50%; --size:7px; animation-duration:19s; animation-delay:1.8s;}
-.flake:nth-child(5){left:64%; --size:5px; animation-duration:17s; animation-delay:0.9s;}
-.flake:nth-child(6){left:78%; --size:6px; animation-duration:20s; animation-delay:1.3s;}
-.flake:nth-child(7){left:92%; --size:4px; animation-duration:18s; animation-delay:0.7s;}
+      position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;
+    }
+    .snow{
+      position:absolute;top:-10%;width:3px;height:3px;border-radius:50%;
+      background:radial-gradient(circle,#f8ffff 0%,rgba(255,255,255,0) 70%);
+      opacity:0.8;
+      animation:fall linear infinite;
+      box-shadow:0 0 5px rgba(180,230,255,0.5),0 0 8px rgba(120,200,255,0.35);
+    }
+    .snow:nth-child(1){left:3%;animation-duration:10s;animation-delay:0s;}
+    .snow:nth-child(2){left:8%;animation-duration:12s;animation-delay:1s;}
+    .snow:nth-child(3){left:13%;animation-duration:14s;animation-delay:2s;}
+    .snow:nth-child(4){left:18%;animation-duration:11s;animation-delay:3s;}
+    .snow:nth-child(5){left:23%;animation-duration:16s;animation-delay:1.5s;}
+    .snow:nth-child(6){left:28%;animation-duration:13s;animation-delay:0.5s;}
+    .snow:nth-child(7){left:33%;animation-duration:15s;animation-delay:2.5s;}
+    .snow:nth-child(8){left:38%;animation-duration:17s;animation-delay:3.5s;}
+    .snow:nth-child(9){left:43%;animation-duration:12s;animation-delay:0.8s;}
+    .snow:nth-child(10){left:48%;animation-duration:14s;animation-delay:1.8s;}
+    .snow:nth-child(11){left:53%;animation-duration:16s;animation-delay:2.8s;}
+    .snow:nth-child(12){left:58%;animation-duration:18s;animation-delay:3.8s;}
+    .snow:nth-child(13){left:63%;animation-duration:13s;animation-delay:0.3s;}
+    .snow:nth-child(14){left:68%;animation-duration:15s;animation-delay:1.3s;}
+    .snow:nth-child(15){left:73%;animation-duration:17s;animation-delay:2.3s;}
+    .snow:nth-child(16){left:78%;animation-duration:19s;animation-delay:3.3s;}
+    .snow:nth-child(17){left:83%;animation-duration:11s;animation-delay:0.6s;}
+    .snow:nth-child(18){left:88%;animation-duration:13s;animation-delay:1.6s;}
+    .snow:nth-child(19){left:93%;animation-duration:15s;animation-delay:2.6s;}
+    .snow:nth-child(20){left:98%;animation-duration:17s;animation-delay:3.6s;}
+    .snow:nth-child(21){left:50%;animation-duration:20s;animation-delay:0.2s;}
+    .snow:nth-child(22){left:5%;animation-duration:19s;animation-delay:1.2s;}
+    .snow:nth-child(23){left:95%;animation-duration:18s;animation-delay:2.2s;}
+    .snow:nth-child(24){left:25%;animation-duration:21s;animation-delay:3.2s;}
+    @keyframes fall{
+      0%{transform:translate3d(0,0,0) scale(1);opacity:0;}
+      10%{opacity:1;}
+      50%{transform:translate3d(-10px,50vh,0) scale(1.05);}
+      100%{transform:translate3d(10px,105vh,0) scale(0.9);opacity:0;}
+    }
 
-@keyframes flakeFall{
-  0%{transform:translate3d(0,0,0);opacity:0;}
-  10%{opacity:0.8;}
-  50%{transform:translate3d(-8px,50vh,0);}
-  100%{transform:translate3d(8px,105vh,0);opacity:0;}
-}
+    /* COMMON FADE OUT EFFECT FOR LAYERS */
+    .fade-out-soft{
+      animation: fadeOutSoft 1.2s ease forwards;
+    }
+    @keyframes fadeOutSoft{
+      0%{opacity:1;}
+      100%{opacity:0;visibility:hidden;}
+    }
 
     /* YOUTUBE OVERLAY */
     .yt-overlay{
@@ -79,7 +95,7 @@
       width:100%;height:100%;border:0;
     }
 
-    /* LETTER LAYER (MAIN LONG LETTER) */
+    /* LETTER LAYER */
     .letter-layer{
       position:fixed;inset:0;
       display:flex;align-items:center;justify-content:center;
@@ -222,7 +238,7 @@
       text-align:center;
       padding:16px;
       color:#ffeeda;
-      z-index:1;
+      z-index:2;
       opacity:0;
       pointer-events:none;
       transition:opacity 1s ease;
@@ -288,7 +304,7 @@
       opacity:0;
       pointer-events:none;
       transition:opacity 0.6s ease;
-      z-index:4;
+      z-index:3;
     }
     .continue-overlay.visible{
       opacity:1;
@@ -364,19 +380,19 @@
       transform:translateY(0);
     }
 
-    /* DOUBLE SHEET SECTION */
-    .double-sheet-section{
+    /* DOUBLE TRANSPARENT SHEETS (AFTER POPUP) */
+    .double-sheet-layer{
       position:fixed;
       inset:0;
       display:flex;
       align-items:center;
       justify-content:center;
-      z-index:2;
       opacity:0;
       pointer-events:none;
-      transition:opacity 1s ease;
+      transition:opacity 0.8s ease;
+      z-index:2;
     }
-    .double-sheet-section.visible{
+    .double-sheet-layer.visible{
       opacity:1;
       pointer-events:auto;
     }
@@ -398,36 +414,16 @@
         0 0 24px rgba(255,215,170,0.45);
       backdrop-filter:blur(12px);
       -webkit-backdrop-filter:blur(12px);
-      padding:14px 14px 16px;
+      padding:10px 10px 12px;
       position:relative;
       overflow:hidden;
     }
-    .sheet-left{flex:1;}
-    .sheet-right{flex:1;}
 
-    .image-title{
-      font-size:13px;
-      font-weight:600;
-      letter-spacing:0.6px;
-      text-align:center;
-      color:#ffffff;
-      margin-bottom:6px;
-      text-shadow:0 1px 4px rgba(0,0,0,0.9);
-    }
-    .sheet-title{
-      font-size:13px;
-      font-weight:600;
-      letter-spacing:0.8px;
-      text-align:center;
-      color:#ffe9c0;
-      margin-bottom:6px;
-      text-shadow:0 1px 4px rgba(0,0,0,0.9);
-    }
-
+    /* LEFT: full background slideshow, no heading */
     .sheet-left-inner{
       position:relative;
       width:100%;
-      height:220px;
+      height:240px;
       border-radius:18px;
       overflow:hidden;
     }
@@ -435,19 +431,17 @@
       position:absolute;
       inset:0;
       background-position:center;
-      background-size:cover;
+      background-size:cover; /* full bleed inside container */ /* [web:283][web:284] */
       background-repeat:no-repeat;
       opacity:0;
       transition:opacity 0.9s ease;
     }
-    .slide-full.active{
-      opacity:1;
-    }
+    .slide-full.active{opacity:1;}
 
+    /* RIGHT: text only, no heading */
     .sheet-text-wrap{
-      max-height:210px;
+      max-height:240px;
       overflow:auto;
-      margin-top:4px;
       padding-right:4px;
     }
     .sheet-text{
@@ -456,116 +450,49 @@
       white-space:pre-wrap;
       color:#fdf7e9;
     }
-    .sheet-cursor{
-      display:inline-block;
-      width:2px;
-      background:rgba(255,255,255,0.9);
-      margin-left:2px;
-      animation:caretBlink 0.8s steps(1,end) infinite;
-      vertical-align:baseline;
-    }
 
     .finger-left,
     .finger-right{
       position:absolute;
-      font-size:26px;
+      font-size:24px;
       text-shadow:0 2px 4px rgba(0,0,0,0.9);
       pointer-events:none;
-      opacity:0.95;
       color:#ffffff;
     }
     .finger-left{
-      bottom:100%;
-      left:8%;
-      margin-bottom:2px;
+      top:-4px;
+      left:10%;
+      transform:translateY(-100%);
     }
     .finger-right{
-      bottom:100%;
-      right:8%;
-      margin-bottom:2px;
+      top:-4px;
+      right:10%;
+      transform:translateY(-100%);
     }
-
-    /* FINAL GIF CARD */
-    .final-card{
-      position:fixed;
-      inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:16px;
-      z-index:6;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity 1s ease;
-      background:transparent;
-    }
-    .final-card.visible{
-      opacity:1;
-      pointer-events:auto;
-    }
-    .final-card-inner{
-      max-width:360px;
-      width:100%;
-      background:rgba(9,6,19,0.65);
-      border-radius:22px;
-      border:1px solid rgba(255,230,190,0.9);
-      box-shadow:
-        0 0 30px rgba(0,0,0,0.85),
-        0 0 26px rgba(255,215,170,0.55);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      padding:16px 16px 14px;
-      text-align:center;
-      color:#ffeeda;
-    }
-    .final-gif-wrap{
-      display:flex;
-      justify-content:center;
-      margin-bottom:12px;
-    }
-    .final-gif-wrap img{
-      max-width:200px;
-      width:80%;
-      border-radius:18px;
-      box-shadow:0 0 16px rgba(255,223,186,0.8);
-    }
-    .final-text{
+    .right-question{
+      position:absolute;
+      top:-4px;
+      right:32%;
+      transform:translateY(-100%);
       font-size:13px;
-      line-height:1.7;
-      white-space:pre-wrap;
-      text-shadow:0 1px 3px rgba(0,0,0,0.7);
-    }
-
-    /* FOOTER INSTA LINK */
-    .footer-insta{
-      position:fixed;
-      left:0;right:0;
-      bottom:6px;
-      text-align:center;
-      font-size:11px;
-      color:#ffeeda;
-      opacity:0.9;
-      z-index:7;
-      text-shadow:0 1px 3px rgba(0,0,0,0.8);
-    }
-    .footer-insta a{
-      color:#ffd9a3;
-      text-decoration:none;
-      font-weight:500;
-    }
-    .footer-insta a:hover{
-      text-decoration:underline;
+      color:#ffffff;
+      text-shadow:0 1px 3px rgba(0,0,0,0.9);
+      white-space:nowrap;
     }
   </style>
 </head>
 <body>
-  <!-- SNOW -->
- <div class="snow-layer">
-  <div class="flake"></div><div class="flake"></div><div class="flake"></div><div class="flake"></div>
-  <div class="flake"></div><div class="flake"></div><div class="flake"></div>
-</div>
+  <!-- Permanent background snow -->
+  <div class="snow-layer">
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+  </div>
 
-  <!-- STEP 1: YT -->
+  <!-- STEP 1: YT PLAYER -->
   <div class="yt-overlay" id="ytOverlay">
     <div class="yt-container">
       <iframe
@@ -579,7 +506,7 @@
     </div>
   </div>
 
-  <!-- STEP 2: LETTER (main) -->
+  <!-- STEP 2: LETTER -->
   <div class="letter-layer" id="letterLayer">
     <div class="letter-backdrop"></div>
     <div class="letter-box">
@@ -605,7 +532,7 @@
     </div>
   </div>
 
-  <!-- STEP 4: YES / NO -->
+  <!-- STEP 4: YES / NO POPUP -->
   <div class="continue-overlay" id="continueOverlay">
     <div class="continue-box">
       <div class="continue-title">Shall we continue.?</div>
@@ -618,48 +545,70 @@
     </div>
   </div>
 
-  <!-- STEP 5: DOUBLE SHEET -->
-  <div class="double-sheet-section" id="doubleSheetSection">
+  <!-- STEP 5: DOUBLE TRANSPARENT SHEETS -->
+  <div class="double-sheet-layer" id="doubleSheetLayer">
     <div class="double-sheet-wrapper">
       <div class="finger-left">👈</div>
-      <div class="finger-right">👉 ?</div>
+      <div class="finger-right">👉</div>
+      <div class="right-question">?</div>
 
-      <div class="sheet sheet-left">
-        <div class="image-title">
-          ise jaante ho? ye sab isi ke liye banaya hai ... 😁
-        </div>
+      <!-- LEFT SHEET: full-bleed slideshow -->
+      <div class="sheet">
         <div class="sheet-left-inner" id="leftSlideshow"></div>
       </div>
 
-      <div class="sheet sheet-right">
-        <div class="sheet-title">and a few more words..</div>
-        <div class="sheet-text-wrap">
+      <!-- RIGHT SHEET: emotional message (no heading, just text) -->
+      <div class="sheet">
+        <div class="sheet-text-wrap" id="sheetTextWrap">
           <div class="sheet-text" id="sheetText"></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FINAL GIF CARD (after last message) -->
-  <div class="final-card" id="finalCard">
-    <div class="final-card-inner">
-      <div class="final-gif-wrap">
-        <img src="https://media.tenor.com/qqRoBpnjOrIAAAAi/tkthao219-bubududu.gif" alt="bubududu hug">
+  <!-- FINAL GIF + MESSAGE + INSTA -->
+  <div id="finalLayer" style="
+    position:fixed;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;
+    opacity:0;pointer-events:none;
+    transition:opacity 1s ease;
+    z-index:2;
+    text-align:center;
+    color:#ffeeda;
+    padding:16px;">
+    <div style="
+      background:rgba(9,6,19,0.55);
+      border-radius:22px;
+      border:1px solid rgba(255,230,190,0.85);
+      box-shadow:0 0 26px rgba(0,0,0,0.85),0 0 24px rgba(255,215,170,0.45);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      padding:14px 18px 18px;
+      max-width:360px;
+      width:100%;">
+      <div style="display:flex;justify-content:center;margin-bottom:10px;">
+        <img src="https://media.tenor.com/qqRoBpnjOrIAAAAm/tkthao219-bubududu.webp"
+             alt="bubu"
+             style="width:130px;height:130px;object-fit:contain;">
       </div>
-      <div class="final-text">
-        kaisa laga ??  
-        emotional toh nhi kara diye na??? 😅
+      <div style="font-size:13px;line-height:1.7;white-space:pre-wrap;">
+        kaisa laga ?? emotional toh nhi hue na ??? 
+
+waise itni si mehant ko itne der tak dekhne ke liye thank you !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       </div>
     </div>
-  </div>
 
-  <!-- FOOTER INSTA -->
-  <div class="footer-insta">
-    Insta: <a href="https://www.instagram.com/_i.msaurav_/" target="_blank" rel="noopener noreferrer">@_i.msaurav_</a>
+    <!-- bottom insta link -->
+    <a href="https://www.instagram.com/_i.msaurav_/" target="_blank"
+       style="position:fixed;bottom:10px;left:50%;transform:translateX(-50%);
+              font-size:12px;color:#ffeeda;text-decoration:none;
+              text-shadow:0 1px 3px rgba(0,0,0,0.8);">
+      _i.msaurav_
+    </a>
   </div>
 
   <script>
-    /* MAIN LONG LETTER */
     const fullMessage = `The dearest angel of my life,
 Kabhi kabhi zindagi me kuch log aise mil jaate hain jo bina awaaz kiye, bina zyada kuch maange, dil ka ek bohot hi khaas hissa ban jaate hain.
 Tum unhi logon me se ek ho. 💫
@@ -683,12 +632,17 @@ Bas itna sa hai ki jo bhi dil me gratitude, warmth, attachment aur respect tha, 
 Thank you – un sab dino ke liye jahan tumne, shayad bina jaane, meri life ko thoda sa halka sa, thoda sa behtar bana diya.
 Thank you un moments ke liye jahan tumhari presence ne cheezein sirf easy ya light nahi, balki genuinely special bana di.
 Aaj bhi dil se yehi dua nikalti hai ki tumhe aage aane wale har phase me clarity mile, ache decisions milen, aise log milen jo tumhe waise hi samajh saken jaise tum deserve karti ho, aur tum hamesha apne aap par proud feel karo…
-Aur agar kabhi future me kisi din, kisi chhoti si baat se tumhe meri yaad aa bhi jaaye, to bas itna sa samajhna ki kahin na kahin se ek shant si good wish – ek chhota sa, dil se nikla positive thought – tumhare naam likha gaya tha. ✨
+Aur agar kabhi future me kisi din, kisi chhoti si baat se tumhe meri yaad aa bhi jaaye, to bas itna sa samajhna ki kahin na kahin se ek shant si good wish – ek chhota sa, dil se nikla positive thought – tumhare naam likha गया tha. ✨
 
 Sincerely,
 Saurav`;
 
-    /* RIGHT SHEET – your long emotional message */
+    const ganeshaFull = `Bahot maanti ho na tum inko…
+Tumhari wajah se hi main inse pray karta tha ki sab theek rahe, tum khush raho, apni zindagi aazaadi se jiyo.
+Kabhi kabhi lagta hai shayad isi wajah se unhone mujhe thoda door kar diya… 😣
+Phir bhi ek cheez se genuinely khush hoon – ki tum khush ho.
+Baaki aur kuch matter nahi karta.`;
+
     const sheetFull = `Jaante ho ik waqt tha jab lagta tha ki shayad zindagi thoda sa ruk jaaye, thoda sa bend ho jaaye sirf itna sa waqt dene ke liye ki main tumhare saath thoda aur reh sakun… bas thoda aur.
 Par phir reality ne aa kar thapp se yaad dilaya ki sab kuch hamare control me nahi hota. Tumhare parents ke decisions, tumhara unke liye respect, aur tumhara unke kehne par chalna – ye sab dekhkar frustration se zyada ek ajeeb si bechainee feel hoti hai… kyunki mujhe pata hai tum jaan boojh kar apne future ko gamble pe nahi rakh rahi, tum bus wahi kar rahi ho jo tumhe sahi lagta hai apne logon ke liye.
 Kabhi kabhi sochta hoon, tum unki beti ho, unki responsibility ho – lekin kya pata unhe kabhi realise ho ki tum sirf unki zimmedaari nahi, tum khud bhi ek alag insaan ho, apne khud ke sapno ke saath.
@@ -715,37 +669,157 @@ Ho sakta hai tum harek line me bas “over emotional” dekh rahi ho… lekin me
 Bas itna yaad rahe – ek ladka tha jo shayad bohot imperfect tha, bohot ziddi tha, bohot irritating tha… par jisne dil se tumhare liye kabhi bura nahi socha.
 Baaki, tum jahan bhi raho, jis bhi naam ke saath raho, dua hamesha isi cheez ki rahegi ki tum khud ke decisions se satisfied raho, khud ko kabhi kam mat samjho, aur kabhi bhi kisi ko apni smile ke upar rights na de do.`;
 
-    /* GANESHA TEXT */
-    const gMsg = `Ganpati Bappa hamesha se mere liye ek aise dost jaise rahe hain
-jo bina kuch kahe bas dil samajh lete hain. 🕊️
-Isliye socha, tum tak kuch bhi bhejne se pehle,
-unke saamne ek chhoti si dua rakh doon — 
-ki tum jahan bhi raho, jaise bhi raho,
-wahan tumhe hamesha sukoon, clarity
-aur genuinely khush rehne wale reasons milte rahein. 💛`;
-
-    const messageEl = document.getElementById('messageText');
-    const sheetEl   = document.getElementById('sheetText');
-    const gEl       = document.getElementById('gText');
-
-    const letterLayer        = document.getElementById('letterLayer');
-    const ganeshaSection     = document.getElementById('ganeshaSection');
-    const continueOverlay    = document.getElementById('continueOverlay');
-    const doubleSheetSection = document.getElementById('doubleSheetSection');
-    const finalCard          = document.getElementById('finalCard');
-
     const ytOverlay = document.getElementById('ytOverlay');
+    const letterLayer = document.getElementById('letterLayer');
+    const container = document.getElementById('messageText');
+    const ganeshaSection = document.getElementById('ganeshaSection');
+    const gContainer = document.getElementById('gText');
+    const finalLayer = document.getElementById('finalLayer');
 
+    const chars = fullMessage.split('');
+    let index = 0;
+    let typingStarted = false;
+
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    container.appendChild(cursor);
+
+    const perChar = 120;
+
+    function startTypingOnce() {
+      if (typingStarted) return;
+      typingStarted = true;
+
+      letterLayer.classList.add('visible');
+
+      setTimeout(() => {
+        const interval = setInterval(() => {
+          if (index >= chars.length) {
+            clearInterval(interval);
+            cursor.remove();
+
+            // LETTER layer dissolve, phir Bappa aaye (thoda wait)
+            letterLayer.classList.add('fade-out-soft');
+
+            setTimeout(() => {
+              ganeshaSection.classList.add('visible');
+              startGaneshaTyping();
+            }, 2200);
+            return;
+          }
+
+          const ch = chars[index];
+
+          if (ch === '\n') {
+            container.insertBefore(document.createElement('br'), cursor);
+            container.insertBefore(document.createElement('br'), cursor);
+          } else {
+            container.insertBefore(document.createTextNode(ch), cursor);
+          }
+
+          container.parentElement.scrollTop = container.parentElement.scrollHeight;
+          index++;
+        }, perChar);
+      }, 1600);
+    }
+
+    // GANESHA TYPEWRITER
+    const gChars = ganeshaFull.split('');
+    let gIndex = 0;
+    const gCursor = document.createElement('span');
+    gCursor.className = 'g-cursor';
+    gContainer.appendChild(gCursor);
+    const gPerChar = 90;
+
+    function startGaneshaTyping(){
+      const interval = setInterval(() => {
+        if (gIndex >= gChars.length){
+          clearInterval(interval);
+          gCursor.remove();
+
+          // Bappa dissolve, phir popup aaye
+          ganeshaSection.classList.add('fade-out-soft');
+
+          setTimeout(() => {
+            document.getElementById('continueOverlay').classList.add('visible');
+          }, 2200);
+          return;
+        }
+
+        const ch = gChars[gIndex];
+
+        if (ch === '\n'){
+          gContainer.insertBefore(document.createElement('br'), gCursor);
+          gContainer.insertBefore(document.createElement('br'), gCursor);
+        } else {
+          gContainer.insertBefore(document.createTextNode(ch), gCursor);
+        }
+
+        gIndex++;
+      }, gPerChar);
+    }
+
+    let player;
+
+    function onYouTubeIframeAPIReady(){
+      player = new YT.Player('ytPlayer', {
+        events:{ onStateChange: onPlayerStateChange }
+      });
+    }
+
+    function onPlayerStateChange(event){
+      if (event.data === YT.PlayerState.PLAYING){
+        ytOverlay.classList.add('hidden');
+        setTimeout(() => {
+          ytOverlay.style.display = 'none';
+          startTypingOnce();
+        }, 700);
+      }
+    }
+
+    /* YES/NO */
     const btnYes = document.getElementById('btnYes');
     const btnNo  = document.getElementById('btnNo');
-    const resultMsg = document.getElementById('resultMsg');
+    const result = document.getElementById('resultMsg');
+    const continueOverlay = document.getElementById('continueOverlay');
+    const doubleSheetLayer = document.getElementById('doubleSheetLayer');
 
-    /* LEFT SLIDESHOW IMAGES */
+    function closePopup(delay){
+      setTimeout(() => {
+        continueOverlay.classList.add('fade-out-soft');
+        // phir sheets visible
+        setTimeout(() => {
+          doubleSheetLayer.classList.add('visible');
+        }, 2200);
+      }, delay);
+    }
+
+    btnYes.addEventListener('click', () => {
+      result.textContent = "Sirf tumhare liye kuch chhoti‑si cheezein banayi hain,\nthodi si mehnat se… dekhogi?";
+      result.classList.add('visible');
+      closePopup(6000); // 6 sec
+    });
+
+    btnNo.addEventListener('click', () => {
+      result.textContent = "Kitne bigdail ho yrr tum…\nitni mehnat se banayi hui cheez ko koi aise mana karta hai kya? Ab dekho nahi toh katti. 😤";
+      result.classList.add('visible');
+      closePopup(6000); // 6 sec
+    });
+
+    // LEFT SLIDESHOW IMAGES (full-bleed)
     const slideUrls = [
-      "https://i.ibb.co/89ZkZ9Q/Whats-App-Image-2025-02-02-at-22-17-43-2a44a4cd.jpg",
-      "https://i.ibb.co/89ZkZ9Q/Whats-App-Image-2025-02-02-at-22-17-43-2a44a4cd.jpg",
-      "https://i.ibb.co/89ZkZ9Q/Whats-App-Image-2025-02-02-at-22-17-43-2a44a4cd.jpg"
+      "https://scontent.fpat2-3.fna.fbcdn.net/v/t1.15752-9/622545384_1211933343884874_9047688104074483996_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=GrCTdREhRxUQ7kNvwHfu0dT&_nc_oc=Adk7SwdhgynXPo-M28UycdsAdD83yvGA4FqKau9Av8i4gkBYdTXSRd2lhg7rypfS3QeNbVZyOIBOV9qiQR6rtOX1&_nc_zt=23&_nc_ht=scontent.fpat2-3.fna&oh=03_Q7cD4gH9fd4_uWhDYPHEagkKtNAsrvUWAo1F8JVYcTClG36RIw&oe=69ABC514",
+      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/621153261_939180279280809_7722870075001620847_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=arudcbo5iMIQ7kNvwEzagvb&_nc_oc=Admy1kMshfNZWu1tcLs1Sb6nsifB91xYbmcGnSOz6n_Sqi_o-RVmrMyyoQfVr8irJup5zjZMX04cy_kG9De9p-1H&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gGNIoFjPz0NQt9sYMlNSAH4ziY8N6SvaZmP-rT6UQkE8A&oe=69ABCAD6",
+      "https://scontent.fpat2-3.fna.fbcdn.net/v/t1.15752-9/623938824_2065721197601055_7291277405261777432_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=8qB04euuADUQ7kNvwE1es02&_nc_oc=AdlqYI8afRmbkddsemAA8STNfwcWD4hLRNNVQXEXP34azwn-4zzibBdl1HYdXKTrgHuxgkf2xI_uAqP5C62G3MmP&_nc_zt=23&_nc_ht=scontent.fpat2-3.fna&oh=03_Q7cD4gHIAToOw2theHi1I5LPXXkSVWJucIPzjFLzt0tBfrCWGg&oe=69ABA97C",
+      "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.15752-9/621534461_1390019806090490_5411646053077396350_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_ohc=bt_-uZZZBAwQ7kNvwEf_49d&_nc_oc=Adk4SmB5WtPa_dlxgnw0q4h3J3M3hCCrJqLwcZZXSOqeEw8kBau8aw5Yy8z395OdIyi_Qcs498CL2e0p2XpOmWfy&_nc_zt=23&_nc_ht=scontent.fpat2-2.fna&oh=03_Q7cD4gER5B9vWlI8oXmr9P1i7lK_Kvi8C2uDOnFbujuNmtgPxQ&oe=69ABC688",
+      "https://scontent.fpat2-3.fna.fbcdn.net/v/t1.15752-9/626301320_890708507038618_6924410934412513835_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=IIM2tdM2dcMQ7kNvwGwsQI8&_nc_oc=AdnNLrszwF5YEM47Xv8KxQrKJGO65q9ExBI43KwBJki6ONjmd8qqPyILzLonaEmEdq0sbaWHYUOerPmn9Ww5hwM&_nc_zt=23&_nc_ht=scontent.fpat2-3.fna&oh=03_Q7cD4gG0RYIpcC5k2BFPOJBO9O7klhVfv2lo0zRCfzY07nc_Gg&oe=69ABA5C3",
+      "https://scontent.fpat2-3.fna.fbcdn.net/v/t1.15752-9/621125600_2110309893077158_6829743767603207368_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=FTqHDC2TzHwQ7kNvwFRVDi8&_nc_oc=AdkPdeRM43mv6jreH2Nu1CLuS4rKczh_iqIp4kCJBFbdkfIO_wXtGjxi_2waCKRastKG7qqSzpxZ2Josy5TtrqxW&_nc_zt=23&_nc_ht=scontent.fpat2-3.fna&oh=03_Q7cD4gHcFwHE2SJSortXahI6emEgE6sCnMmyweXYHjR1rL2l4w&oe=69ABDB9E",
+      "https://scontent.fpat2-8.fna.fbcdn.net/v/t1.15752-9/621038457_2684801401895971_6193927914648057504_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=Hl2p9ZiK_ekQ7kNvwHmik3j&_nc_oc=AdmwU7FEFTivNDF9vlLEOQx9ixryjy5upAOubN-a5YMNbzjGf8M6OMRFBgLk1MeLfS46tDmJ_zscn0bgSsjX_C3C&_nc_zt=23&_nc_ht=scontent.fpat2-8.fna&oh=03_Q7cD4gHiv7YdY-hT0-yHON590LmxpYLT6_8xkTYpPKWA2jFpQg&oe=69ABCF90",
+      "https://scontent.fpat2-5.fna.fbcdn.net/v/t1.15752-9/625375222_1522947515465933_5007496625849952980_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=xzRx4L6_nqgQ7kNvwGCVy4f&_nc_oc=Admyu_74HKSNHeorrfgRNYFOyPg-yJ2NUewwOx5W1cKAZa98DKe5mQGiSfRc3C_8x39nDf7mNuYf7xzLCu26KEnI&_nc_zt=23&_nc_ht=scontent.fpat2-5.fna&oh=03_Q7cD4gEo8okUG5DVrvB_7B87d0V5svsSHpyMHxuVOlBsk5Ts5w&oe=69ABA85D",
+      "https://scontent.fpat2-3.fna.fbcdn.net/v/t1.15752-9/621171856_1244229544340236_988895685685716226_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=-L-_0E9RjtUQ7kNvwF8knmG&_nc_oc=Admj035OKnPm0YKr6s7AxoP7k40AKY2Z7Q9BBEDg9T0cnalW0Vd0O_d-ZAzj0ZxvO1_94b5gPNA8dx5Qxu2LNs1U&_nc_zt=23&_nc_ht=scontent.fpat2-3.fna&oh=03_Q7cD4gHGu983pn_Y58OjCmJWZ_RwffYk77D3ZfCHjLXjs8bznA&oe=69ABC0BE",
+      "https://scontent.fpat2-3.fna.fbcdn.net/v/t1.15752-9/622760820_882543561234470_8682609671403368470_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_ohc=D85jGbV0dRMQ7kNvwFiCpn2&_nc_oc=AdngKte1e2eDoQZAQPkk1GQdwt3SfQhyAELdn2biKmPHmd2KnDRanXIgI0BSTSDviuFpq7-aszxzTjK6oiL-V010&_nc_zt=23&_nc_ht=scontent.fpat2-3.fna&oh=03_Q7cD4gGQTpzRWPwJVMPeXAzuQazfxW38nyDjAey7FNHpWIgk6A&oe=69ABAAF5"
     ];
+
     const leftContainer = document.getElementById('leftSlideshow');
 
     function setupSlides(){
@@ -756,76 +830,72 @@ aur genuinely khush rehne wale reasons milte rahein. 💛`;
         leftContainer.appendChild(d);
       });
       const slides=document.querySelectorAll('.slide-full');
+      if(slides.length===0) return;
       let current=0;
       setInterval(()=>{
         slides[current].classList.remove('active');
         current=(current+1)%slides.length;
         slides[current].classList.add('active');
-      },15000);
+      },10000); // 10 seconds per slide [web:286][web:66]
     }
 
-    function typeText(el, text, speed=25, done){
-      let i=0;
-      el.textContent='';
-      const cursor=document.createElement('span');
-      cursor.className= el.id==='gText' ? 'g-cursor' : (el.id==='sheetText' ? 'sheet-cursor' : 'cursor');
-      el.appendChild(cursor);
-      const interval=setInterval(()=>{
-        if(i<text.length){
-          cursor.before(text.charAt(i));
-          i++;
-        }else{
-          clearInterval(interval);
-          if(done) done();
-        }
-      },speed);
-    }
+    // RIGHT SHEET TYPEWRITER
+    const sheetTextEl = document.getElementById('sheetText');
+    const sheetWrap = document.getElementById('sheetTextWrap');
+    const sheetChars = sheetFull.split('');
+    let sIndex = 0;
 
-    // FLOW same as pehle:
-    // 1) thoda delay -> YT hide, letter show
-    // 2) letter typing -> Bappa
-    // 3) Bappa typing -> Yes/No
-    // 4) Yes -> double sheet + right message typing
-    // 5) Right message ke 10s baad -> final GIF card
-
-    setTimeout(()=>{
-      ytOverlay.classList.add('hidden');
-      letterLayer.classList.add('visible');
-      typeText(messageEl, fullMessage, 18, ()=>{
-        setTimeout(()=>{
-          letterLayer.classList.remove('visible');
-          ganeshaSection.classList.add('visible');
-          typeText(gEl, gMsg, 22, ()=>{
-            setTimeout(()=>{
-              ganeshaSection.classList.remove('visible');
-              continueOverlay.classList.add('visible');
-            },800);
-          });
-        },800);
-      });
-    }, 3000);
-
-    btnYes.onclick = ()=>{
-      resultMsg.textContent='';
-      continueOverlay.classList.remove('visible');
-      doubleSheetSection.classList.add('visible');
-      setupSlides();
-      typeText(sheetEl, sheetFull, 15, ()=>{
-        // last message complete -> 10s -> show GIF
-        setTimeout(()=>{
-          finalCard.classList.add('visible');
-        },10000);
-      });
-    };
-
-    btnNo.onclick = ()=>{
-      resultMsg.textContent = "thik hai, yahin tak sahi... par ek chhota sa secret: ye sab sirf tumhare liye hi bana tha. 💛";
-      resultMsg.classList.add('visible');
+    function showFinalGif(){
       setTimeout(()=>{
-        finalCard.classList.add('visible');
-      },10000);
-    };
+        finalLayer.style.opacity = '1';
+        finalLayer.style.pointerEvents = 'auto';
+      },1400); // sheets fade ke baad
+    }
+
+    function startSheetTyping(){
+      const cursorSheet = document.createElement('span');
+      cursorSheet.className = 'cursor';
+      sheetTextEl.appendChild(cursorSheet);
+
+      const interval = setInterval(()=>{
+        if(sIndex >= sheetChars.length){
+          clearInterval(interval);
+          cursorSheet.remove();
+
+          // 6 sec baad left+right sheet dissolve, phir final gif
+          setTimeout(()=>{
+            doubleSheetLayer.classList.add('fade-out-soft');
+            showFinalGif();
+          },6000);
+
+          return;
+        }
+        const ch = sheetChars[sIndex];
+        if(ch === '\n'){
+          sheetTextEl.insertBefore(document.createElement('br'), cursorSheet);
+          sheetTextEl.insertBefore(document.createElement('br'), cursorSheet);
+        } else {
+          sheetTextEl.insertBefore(document.createTextNode(ch), cursorSheet);
+        }
+        sheetWrap.scrollTop = sheetWrap.scrollHeight;
+        sIndex++;
+      }, 120);
+    }
+
+    // when double sheet layer becomes visible, start slideshow + sheet typing
+    const observer = new MutationObserver((mutations)=>{
+      mutations.forEach(m=>{
+        if(m.attributeName === 'class'){
+          if(doubleSheetLayer.classList.contains('visible')){
+            setupSlides();
+            startSheetTyping();
+          }
+        }
+      });
+    });
+    observer.observe(doubleSheetLayer,{attributes:true});
+
   </script>
+  <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
-
